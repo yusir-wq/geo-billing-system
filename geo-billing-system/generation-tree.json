@@ -1,0 +1,58 @@
+{
+  "root": {
+    "nodeId": "gen-project-shell",
+    "kind": "project-shell",
+    "pageIds": ["page-index", "page-features", "page-solutions", "page-contact"],
+    "output": "partials/project-shell.html",
+    "sharedRegions": ["header-nav", "footer"],
+    "privateRegions": [],
+    "mutableSlots": ["activeNavItem"],
+    "status": "planned",
+    "children": [
+      {
+        "nodeId": "gen-page-index",
+        "kind": "page-leaf",
+        "pageIds": ["page-index"],
+        "output": "pages/index.html",
+        "sharedRegions": [],
+        "privateRegions": ["hero section", "stats section", "feature preview", "CTA section"],
+        "mutableSlots": ["activeNavItem"],
+        "status": "planned",
+        "children": []
+      },
+      {
+        "nodeId": "gen-page-features",
+        "kind": "page-leaf",
+        "pageIds": ["page-features"],
+        "output": "pages/features.html",
+        "sharedRegions": [],
+        "privateRegions": ["page header", "9 feature cards"],
+        "mutableSlots": ["activeNavItem"],
+        "status": "planned",
+        "children": []
+      },
+      {
+        "nodeId": "gen-page-solutions",
+        "kind": "page-leaf",
+        "pageIds": ["page-solutions"],
+        "output": "pages/solutions.html",
+        "sharedRegions": [],
+        "privateRegions": ["page header", "4 role solution blocks", "flow diagram"],
+        "mutableSlots": ["activeNavItem"],
+        "status": "planned",
+        "children": []
+      },
+      {
+        "nodeId": "gen-page-contact",
+        "kind": "page-leaf",
+        "pageIds": ["page-contact"],
+        "output": "pages/contact.html",
+        "sharedRegions": [],
+        "privateRegions": ["contact form section", "info section"],
+        "mutableSlots": ["activeNavItem"],
+        "status": "planned",
+        "children": []
+      }
+    ]
+  }
+}

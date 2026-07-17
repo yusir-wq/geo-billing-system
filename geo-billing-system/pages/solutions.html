@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>解决方案</title>
+    <style id="theme-vars">
+:root {
+  /* === Brand Colors === */
+  --color-primary: #1E40AF;
+  --color-primary-light: #2563EB;
+  --color-primary-lighter: #3B82F6;
+  --color-primary-lightest: #DBEAFE;
+  --color-primary-dark: #1E3A8A;
+  --color-primary-50: #EFF6FF;
+  --color-primary-100: #DBEAFE;
+  --color-primary-200: #BFDBFE;
+  --color-primary-500: #3B82F6;
+  --color-primary-600: #2563EB;
+  --color-primary-700: #1D4ED8;
+  --color-primary-800: #1E40AF;
+  --color-primary-900: #1E3A8A;
+  --color-primary-950: #172554;
+
+  /* === Neutrals === */
+  --color-bg: #FFFFFF;
+  --color-bg-secondary: #F8FAFC;
+  --color-bg-tertiary: #F1F5F9;
+  --color-surface: #FFFFFF;
+  --color-border: #E2E8F0;
+  --color-border-light: #F1F5F9;
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #475569;
+  --color-text-tertiary: #94A3B8;
+  --color-text-inverse: #FFFFFF;
+
+  /* === State Colors === */
+  --state-success: #059669;
+  --state-warning: #D97706;
+  --state-error: #DC2626;
+  --state-info: #2563EB;
+
+  /* === Radius === */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* === Typography === */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+
+  /* Type Scale */
+  --text-xs: 0.75rem;
+  --text-xs-lh: 1rem;
+  --text-sm: 0.875rem;
+  --text-sm-lh: 1.25rem;
+  --text-base: 1rem;
+  --text-base-lh: 1.5rem;
+  --text-lg: 1.125rem;
+  --text-lg-lh: 1.75rem;
+  --text-xl: 1.25rem;
+  --text-xl-lh: 1.75rem;
+  --text-2xl: 1.5rem;
+  --text-2xl-lh: 2rem;
+  --text-3xl: 1.875rem;
+  --text-3xl-lh: 2.25rem;
+  --text-4xl: 2.25rem;
+  --text-4xl-lh: 2.5rem;
+  --text-5xl: 3rem;
+  --text-5xl-lh: 1.1;
+
+  /* Font Weights */
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  /* === Spacing === */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* === Shadows === */
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-card-hover: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-float: 0 10px 25px rgba(0, 0, 0, 0.08);
+  --shadow-nav: 0 1px 3px rgba(0, 0, 0, 0.04);
+
+  /* === Transitions === */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 350ms ease;
+}
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
+    <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+    <style type="text/tailwindcss">
+  @theme inline {
+    --color-primary: var(--color-primary);
+    --color-border: var(--color-border);
+  }
+  @layer base {
+    body { background: var(--color-surface); color: var(--color-text-primary); }
+    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
+    th { @apply whitespace-nowrap; }
+  }
+    </style>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        background-color: currentColor;
+      }
+    </style>
+</head>
+<body class="min-h-screen font-sans antialiased">
+    <main>
+
+      <!-- ==================== HEADER NAVIGATION ==================== -->
+      <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-[var(--color-border)]">
+        <nav class="max-w-[1280px] mx-auto px-6 h-16 flex items-center justify-between">
+
+          <!-- Logo -->
+          <a href="/" class="flex-shrink-0 flex items-center gap-2.5">
+            <img src="assets/logo.png" alt="Logo" class="w-8 h-8 rounded">
+            <div class="flex flex-col leading-tight">
+              <span class="text-[#1E40AF] font-bold tracking-tight" style="font-size:1.1rem;">GEO计费优化管理系统</span>
+              <span class="text-[#94A3B8]" style="font-size:0.65rem;">AIGeo.chinaz.com</span>
+            </div>
+          </a>
+
+          <!-- Desktop Navigation Links -->
+          <ul class="hidden md:flex items-center gap-8">
+            <li>
+              <a href="/"
+                 data-dom-id="nav-index"
+                 data-nav-key="index"
+                 class="relative py-5 text-sm transition-colors text-[#475569] hover:text-[#1E40AF]"
+              >首页</a>
+            </li>
+            <li>
+              <a href="/product-features"
+                 data-dom-id="nav-product-features"
+                 data-nav-key="product-features"
+                 class="relative py-5 text-sm transition-colors text-[#475569] hover:text-[#1E40AF]"
+              >产品功能</a>
+            </li>
+            <li>
+              <a href="/features"
+                 data-dom-id="nav-features"
+                 data-nav-key="features"
+                 class="relative py-5 text-sm transition-colors text-[#475569] hover:text-[#1E40AF]"
+              >核心功能</a>
+            </li>
+            <li>
+              <a href="/solutions"
+                 data-dom-id="nav-solutions"
+                 data-nav-key="solutions"
+                 data-active="true"
+                 class="relative py-5 text-sm transition-colors text-[#1E40AF] font-semibold"
+              >解决方案</a>
+            </li>
+            <li>
+              <a href="/pricing"
+                 data-dom-id="nav-pricing"
+                 data-nav-key="pricing"
+                 class="relative py-5 text-sm transition-colors text-[#475569] hover:text-[#1E40AF]"
+              >产品价格</a>
+            </li>
+            <li>
+              <a href="/help-center"
+                 data-dom-id="nav-help-center"
+                 data-nav-key="help-center"
+                 class="relative py-5 text-sm transition-colors text-[#475569] hover:text-[#1E40AF]"
+              >帮助中心</a>
+            </li>
+            <li>
+              <a href="/contact"
+                 data-dom-id="nav-contact"
+                 data-nav-key="contact"
+                 class="relative py-5 text-sm transition-colors text-[#475569] hover:text-[#1E40AF]"
+              >联系我们</a>
+            </li>
+          </ul>
+
+          <!-- Right Section: CTA + Mobile Hamburger -->
+          <div class="flex items-center gap-4">
+            <!-- CTA Button -->
+            <a href="javascript:void(0)" onclick="openContactModal()"
+               class="hidden sm:inline-flex items-center px-6 py-2.5 text-sm font-medium text-white rounded-[var(--radius-md)] bg-[#1E40AF] hover:bg-[#1E3A8A] transition-colors"
+            >免费试用</a>
+
+            <!-- Mobile Hamburger Button -->
+            <button
+              type="button"
+              class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg text-[#475569] hover:text-[#1E40AF] hover:bg-gray-100 transition-colors"
+              aria-label="打开菜单"
+              data-dom-id="mobile-menu-toggle"
+            >
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+              </svg>
+            </button>
+          </div>
+
+        </nav>
+
+        <!-- Mobile Menu Panel -->
+        <div class="md:hidden hidden border-t border-[var(--color-border)] bg-white" data-dom-id="mobile-menu-panel">
+          <div class="px-6 py-4 space-y-1">
+            <a href="/"
+               data-dom-id="nav-index-mobile"
+               data-nav-key="index"
+               class="block px-3 py-2.5 rounded-lg text-sm text-[#475569] hover:text-[#1E40AF] hover:bg-gray-50 transition-colors"
+            >首页</a>
+            <a href="/product-features"
+           data-dom-id="nav-product-features-mobile"
+           data-nav-key="product-features"
+           class="block px-3 py-2.5 rounded-lg text-sm text-[#475569] hover:text-[#1E40AF] hover:bg-[var(--color-bg-secondary)] transition-colors"
+        >产品功能</a>
+        <a href="/features"
+           data-dom-id="nav-features-mobile"
+           data-nav-key="features"
+           class="block px-3 py-2.5 rounded-lg text-sm text-[#475569] hover:text-[#1E40AF] hover:bg-[var(--color-bg-secondary)] transition-colors"
+        >核心功能</a>
+        <a href="/solutions"
+               data-dom-id="nav-solutions-mobile"
+               data-nav-key="solutions"
+               data-active="true"
+               class="block px-3 py-2.5 rounded-lg text-sm text-[#1E40AF] font-semibold bg-gray-50 transition-colors"
+            >解决方案</a>
+            <a href="/pricing"
+               data-dom-id="nav-pricing-mobile"
+               data-nav-key="pricing"
+               class="block px-3 py-2.5 rounded-lg text-sm text-[#475569] hover:text-[#1E40AF] hover:bg-gray-50 transition-colors"
+            >产品价格</a>
+            <a href="/help-center"
+               data-dom-id="nav-help-center-mobile"
+               data-nav-key="help-center"
+               class="block px-3 py-2.5 rounded-lg text-sm text-[#475569] hover:text-[#1E40AF] hover:bg-gray-50 transition-colors"
+            >帮助中心</a>
+            <a href="/contact"
+               data-dom-id="nav-contact-mobile"
+               data-nav-key="contact"
+               class="block px-3 py-2.5 rounded-lg text-sm text-[#475569] hover:text-[#1E40AF] hover:bg-gray-50 transition-colors"
+            >联系我们</a>
+            <div class="pt-3 border-t border-gray-100">
+              <a href="javascript:void(0)" onclick="openContactModal()"
+                 class="block w-full text-center px-6 py-2.5 text-sm font-medium text-white rounded-[var(--radius-md)] bg-[#1E40AF] hover:bg-[#1E3A8A] transition-colors"
+              >免费试用</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Spacer to offset fixed header height -->
+      <div class="h-16"></div>
+
+      <!-- ==================== PAGE HEADER ==================== -->
+      <section class="bg-white pt-32 pb-12 px-6 text-center">
+        <h1 class="text-4xl font-bold text-[#0F172A]">解决方案</h1>
+        <p class="text-lg text-[#475569] mt-4">根据您的角色与需求，选择最适合的合作方式</p>
+      </section>
+
+      <!-- ==================== SOLUTION 1: SaaS租户 ==================== -->
+      <section class="bg-white py-16 px-6">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <!-- Left: Text Content -->
+          <div>
+            <span class="inline-block text-sm font-medium text-[#1E40AF] bg-[#EFF6FF] px-3 py-1 rounded-full mb-4">方案一</span>
+            <h2 class="text-3xl font-bold text-[#0F172A]">SaaS租户服务</h2>
+            <p class="text-[#475569] mt-4 leading-relaxed text-lg">如果您是拥有自主GEO优化能力的企业，可选择我们的SaaS租户服务，获得完整的平台能力来运营您的GEO业务。</p>
+            <ul class="mt-6 space-y-3">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0 text-[#1E40AF]" viewBox="0 0 20 20" fill="currentColor">
+                  <circle cx="10" cy="10" r="10" fill="#1E40AF"/>
+                  <path d="M6.5 10.5L8.5 12.5L13.5 7.5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+                <span class="text-[#475569]">拥有完整的SaaS平台管理后台</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0 text-[#1E40AF]" viewBox="0 0 20 20" fill="currentColor">
+                  <circle cx="10" cy="10" r="10" fill="#1E40AF"/>
+                  <path d="M6.5 10.5L8.5 12.5L13.5 7.5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+                <span class="text-[#475569]">九大核心功能全量开放</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0 text-[#1E40AF]" viewBox="0 0 20 20" fill="currentColor">
+                  <circle cx="10" cy="10" r="10" fill="#1E40AF"/>
+                  <path d="M6.5 10.5L8.5 12.5L13.5 7.5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+                <span class="text-[#475569]">自定义产品与收费模式，灵活定价</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0 text-[#1E40AF]" viewBox="0 0 20 20" fill="currentColor">
+                  <circle cx="10" cy="10" r="10" fill="#1E40AF"/>
+                  <path d="M6.5 10.5L8.5 12.5L13.5 7.5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+                <span class="text-[#475569]">可发展代理商体系，快速拓展渠道</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0 text-[#1E40AF]" viewBox="0 0 20 20" fill="currentColor">
+                  <circle cx="10" cy="10" r="10" fill="#1E40AF"/>
+                  <path d="M6.5 10.5L8.5 12.5L13.5 7.5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+                <span class="text-[#475569]">AI智能内容生成 + 数千家官媒投稿渠道</span>
+              </li>
+            </ul>
+            <a href="/product-features"
+               data-dom-id="cta-product-features"
+               class="inline-flex items-center gap-2 mt-8 text-[#1E40AF] font-medium hover:gap-3 transition-all"
+            >
+              了解产品详情
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            </a>
+          </div>
+          <!-- Right: Visual -->
+          <div class="bg-[#EFF6FF] rounded-[var(--radius-lg)] p-10">
+            <svg viewBox="0 0 400 280" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+              <!-- SaaS platform dashboard -->
+              <rect x="20" y="20" width="360" height="240" rx="10" fill="white" stroke="#E2E8F0" stroke-width="1.5"/>
+              <!-- Top bar -->
+              <rect x="20" y="20" width="360" height="38" rx="10" fill="#1E40AF"/>
+              <rect x="28" y="20" width="344" height="30" fill="#1E40AF"/>
+              <circle cx="42" cy="39" r="4" fill="rgba(255,255,255,0.3)"/>
+              <circle cx="56" cy="39" r="4" fill="rgba(255,255,255,0.3)"/>
+              <circle cx="70" cy="39" r="4" fill="rgba(255,255,255,0.3)"/>
+              <rect x="160" y="32" width="80" height="12" rx="2" fill="rgba(255,255,255,0.25)"/>
+              <!-- Sidebar -->
+              <rect x="20" y="58" width="80" height="202" fill="#EFF6FF" rx="0"/>
+              <rect x="32" y="74" width="56" height="8" rx="2" fill="#1E40AF" opacity="0.6"/>
+              <rect x="32" y="94" width="44" height="6" rx="2" fill="#94A3B8" opacity="0.3"/>
+              <rect x="32" y="108" width="48" height="6" rx="2" fill="#94A3B8" opacity="0.3"/>
+              <rect x="32" y="122" width="40" height="6" rx="2" fill="#94A3B8" opacity="0.3"/>
+              <rect x="32" y="136" width="52" height="6" rx="2" fill="#94A3B8" opacity="0.3"/>
+              <rect x="32" y="150" width="36" height="6" rx="2" fill="#94A3B8" opacity="0.3"/>
+              <!-- Main content: 9 feature grid (3x3) -->
+              <rect x="112" y="68" width="250" height="186" rx="6" fill="#FAFBFC"/>
+              <g opacity="0.8">
+                <!-- Row 1 -->
+                <rect x="122" y="78" width="72" height="52" rx="5" fill="white" stroke="#DBEAFE" stroke-width="1"/>
+                <rect x="130" y="86" width="8" height="8" rx="2" fill="#1E40AF" opacity="0.5"/>
+                <rect x="143" y="88" width="40" height="4" rx="1" fill="#94A3B8" opacity="0.4"/>
+                <rect x="130" y="100" width="52" height="3" rx="1" fill="#E2E8F0"/>
+                <rect x="130" y="107" width="44" height="3" rx="1" fill="#E2E8F0"/>
+                <rect x="130" y="114" width="48" height="3" rx="1" fill="#E2E8F0"/>
+
+                <rect x="200" y="78" width="72" height="52" rx="5" fill="white" stroke="#DBEAFE" stroke-width="1"/>
+                <rect x="208" y="86" width="8" height="8" rx="2" fill="#1E40AF" opacity="0.5"/>
+                <rect x="221" y="88" width="40" height="4" rx="1" fill="#94A3B8" opacity="0.4"/>
+                <rect x="208" y="100" width="52" height="3" rx="1" fill="#E2E8F0"/>
+                <rect x="208" y="107" width="44" height="3" rx="1" fill="#E2E8F0"/>
+                <rect x="208" y="114" width="48" height="3" rx="1" fill="#E2E8F0"/>
+
+                <rect x="278" y="78" width="72" height="52" rx="5" fill="white" stroke="#DBEAFE" stroke-width="1"/>
+                <rect x="286" y="86" width="8" height="8" rx="2" fill="#1E40AF" opacity="0.5"/>
+                <rect x="299" y="88" width="40" height="4" rx="1" fill="#94A3B8" opacity="0.4"/>
+                <rect x="286" y="100" width="52" height="3" rx="1" fill="#E2E8F0"/>
+                <rect x="286" y="107" width="44" height="3" rx="1" fill="#E2E8F0"/>
+                <rect x="286" y="114" width="48" height="3" rx="1" fill="#E2E8F0"/>
+
+                <!-- Row 2 -->
+                <rect x="122" y="138" width="72" height="52" rx="5" fill="white" stroke="#DBEAFE" stroke-width="1"/>
+                <rect x="130" y="146" width="8" height="8" rx="2" fill="#1E40AF" opacity="0.5"/>
+                <rect x="143" y="148" width="40" height="4" rx="1" fill="#94A3B8" opacity="0.4"/>
+                <rect x="130" y="160" width="52" height="3" rx="1" fill="#E2E8F0"/>
+                <rect x="130" y="167" width="44" height="3" rx="1" fill="#E2E8F0"/>
+                <rect x="130" y="174" width="48" height="3" rx="1" fill="#E2E8F0"/>
+
+                <rect x="200" y="138" width="72" height="52" rx="5" fill="white" stroke="#DBEAFE" stroke-width="1"/>
+                <rect x="208" y="146" width="8" height="8" rx="2" fill="#1E40AF" opacity="0.5"/>
+                <rect x="221" y="148" width="40" height="4" rx="1" fill="#94A3B8" opacity="0.4"/>
+                <rect x="208" y="160" width="52" height="3" rx="1" fill="#E2E8F0"/>
+                <rect x="208" y="167" width="44" height="3" rx="1" fill="#E2E8F0"/>
+                <rect x="208" y="174" width="48" height="3" rx="1" fill="#E2E8F0"/>
+
+                <rect x="278" y="138" width="72" height="52" rx="5" fill="white" stroke="#DBEAFE" stroke-width="1"/>
+                <rect x="286" y="146" width="8" height="8" rx="2" fill="#1E40AF" opacity="0.5"/>
+                <rect x="299" y="148" width="40" height="4" rx="1" fill="#94A3B8" opacity="0.4"/>
+                <rect x="286" y="160" width="52" height="3" rx="1" fill="#E2E8F0"/>
+                <rect x="286" y="167" width="44" height="3" rx="1" fill="#E2E8F0"/>
+                <rect x="286" y="174" width="48" height="3" rx="1" fill="#E2E8F0"/>
+
+                <!-- Row 3 -->
+                <rect x="122" y="198" width="72" height="48" rx="5" fill="white" stroke="#DBEAFE" stroke-width="1"/>
+                <rect x="130" y="206" width="8" height="8" rx="2" fill="#1E40AF" opacity="0.5"/>
+                <rect x="143" y="208" width="40" height="4" rx="1" fill="#94A3B8" opacity="0.4"/>
+                <rect x="130" y="220" width="52" height="3" rx="1" fill="#E2E8F0"/>
+                <rect x="130" y="227" width="44" height="3" rx="1" fill="#E2E8F0"/>
+
+                <rect x="200" y="198" width="72" height="48" rx="5" fill="white" stroke="#DBEAFE" stroke-width="1"/>
+                <rect x="208" y="206" width="8" height="8" rx="2" fill="#1E40AF" opacity="0.5"/>
+                <rect x="221" y="208" width="40" height="4" rx="1" fill="#94A3B8" opacity="0.4"/>
+                <rect x="208" y="220" width="52" height="3" rx="1" fill="#E2E8F0"/>
+                <rect x="208" y="227" width="44" height="3" rx="1" fill="#E2E8F0"/>
+
+                <rect x="278" y="198" width="72" height="48" rx="5" fill="white" stroke="#DBEAFE" stroke-width="1"/>
+                <rect x="286" y="206" width="8" height="8" rx="2" fill="#1E40AF" opacity="0.5"/>
+                <rect x="299" y="208" width="40" height="4" rx="1" fill="#94A3B8" opacity="0.4"/>
+                <rect x="286" y="220" width="52" height="3" rx="1" fill="#E2E8F0"/>
+                <rect x="286" y="227" width="44" height="3" rx="1" fill="#E2E8F0"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SOLUTION 2: 代理商 ==================== -->
+      <section class="bg-[var(--color-bg-secondary)] py-16 px-6">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <!-- Left: Visual -->
+          <div class="bg-white rounded-[var(--radius-lg)] p-10 shadow-[var(--shadow-card)] order-2 lg:order-1">
+            <svg viewBox="0 0 400 280" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+              <!-- Channel hierarchy -->
+              <rect x="130" y="16" width="140" height="44" rx="8" fill="#1E40AF"/>
+              <text x="200" y="43" font-size="13" font-weight="600" fill="white" text-anchor="middle">您（代理商）</text>
+              <line x1="200" y1="60" x2="200" y2="84" stroke="#1E40AF" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <line x1="100" y1="84" x2="300" y2="84" stroke="#1E40AF" stroke-width="1.5"/>
+              <line x1="100" y1="84" x2="100" y2="104" stroke="#1E40AF" stroke-width="1.5"/>
+              <line x1="300" y1="84" x2="300" y2="104" stroke="#1E40AF" stroke-width="1.5"/>
+
+              <!-- Sub-agents -->
+              <rect x="36" y="104" width="128" height="40" rx="6" fill="white" stroke="#1E40AF" stroke-width="1.5"/>
+              <text x="100" y="129" font-size="11" font-weight="500" fill="#1E40AF" text-anchor="middle">子代理 / 下级代理</text>
+
+              <rect x="236" y="104" width="128" height="40" rx="6" fill="white" stroke="#1E40AF" stroke-width="1.5"/>
+              <text x="300" y="129" font-size="11" font-weight="500" fill="#1E40AF" text-anchor="middle">直接客户</text>
+
+              <line x1="100" y1="144" x2="100" y2="168" stroke="#1E40AF" stroke-width="1" stroke-dasharray="3 3" opacity="0.5"/>
+              <line x1="56" y1="168" x2="144" y2="168" stroke="#1E40AF" stroke-width="1" opacity="0.5"/>
+              <line x1="56" y1="168" x2="56" y2="184" stroke="#1E40AF" stroke-width="1" opacity="0.5"/>
+              <line x1="144" y1="168" x2="144" y2="184" stroke="#1E40AF" stroke-width="1" opacity="0.5"/>
+
+              <rect x="10" y="184" width="92" height="32" rx="5" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1"/>
+              <text x="56" y="204" font-size="10" fill="#1E40AF" text-anchor="middle">下级客户 A</text>
+              <rect x="98" y="184" width="92" height="32" rx="5" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1"/>
+              <text x="144" y="204" font-size="10" fill="#1E40AF" text-anchor="middle">下级客户 B</text>
+
+              <!-- OEM badge -->
+              <rect x="100" y="232" width="200" height="36" rx="6" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+              <circle cx="130" cy="250" r="10" fill="#1E40AF" opacity="0.15"/>
+              <text x="130" y="255" font-size="12" fill="#1E40AF" text-anchor="middle" font-weight="600">O</text>
+              <rect x="152" y="244" width="80" height="8" rx="2" fill="#1E40AF" opacity="0.3"/>
+              <rect x="152" y="256" width="56" height="6" rx="2" fill="#94A3B8" opacity="0.3"/>
+            </svg>
+          </div>
+          <!-- Right: Text Content -->
+          <div class="order-1 lg:order-2">
+            <span class="inline-block text-sm font-medium text-[#1E40AF] bg-[#EFF6FF] px-3 py-1 rounded-full mb-4">方案二</span>
+            <h2 class="text-3xl font-bold text-[#0F172A]">代理商合作</h2>
+            <p class="text-[#475569] mt-4 leading-relaxed text-lg">如果您拥有客户渠道，想代理我们的GEO优化服务，可以成为我们的代理商，自主运营、灵活定价、掌控利润。</p>
+            <ul class="mt-6 space-y-3">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0 text-[#1E40AF]" viewBox="0 0 20 20" fill="currentColor">
+                  <circle cx="10" cy="10" r="10" fill="#1E40AF"/>
+                  <path d="M6.5 10.5L8.5 12.5L13.5 7.5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+                <span class="text-[#475569]">可发展子代理，构建多级代理体系</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0 text-[#1E40AF]" viewBox="0 0 20 20" fill="currentColor">
+                  <circle cx="10" cy="10" r="10" fill="#1E40AF"/>
+                  <path d="M6.5 10.5L8.5 12.5L13.5 7.5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+                <span class="text-[#475569]">OEM自定义品牌，打造独立形象</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0 text-[#1E40AF]" viewBox="0 0 20 20" fill="currentColor">
+                  <circle cx="10" cy="10" r="10" fill="#1E40AF"/>
+                  <path d="M6.5 10.5L8.5 12.5L13.5 7.5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+                <span class="text-[#475569]">自主决定产品售价，灵活掌控利润空间</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0 text-[#1E40AF]" viewBox="0 0 20 20" fill="currentColor">
+                  <circle cx="10" cy="10" r="10" fill="#1E40AF"/>
+                  <path d="M6.5 10.5L8.5 12.5L13.5 7.5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+                <span class="text-[#475569]">独立财务核算，资金自主管理</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0 text-[#1E40AF]" viewBox="0 0 20 20" fill="currentColor">
+                  <circle cx="10" cy="10" r="10" fill="#1E40AF"/>
+                  <path d="M6.5 10.5L8.5 12.5L13.5 7.5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+                <span class="text-[#475569]">项目管理、效果报表、员工权限一站式管理</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SOLUTION 3: 企业客户 ==================== -->
+      <section class="bg-white py-16 px-6">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <!-- Left: Text Content -->
+          <div>
+            <span class="inline-block text-sm font-medium text-[#1E40AF] bg-[#EFF6FF] px-3 py-1 rounded-full mb-4">方案三</span>
+            <h2 class="text-3xl font-bold text-[#0F172A]">企业客户服务</h2>
+            <p class="text-[#475569] mt-4 leading-relaxed text-lg">如果您是企业，想为自己的产品做GEO优化服务，我们可直接为您提供专业优化服务，并提供客户登录账号，让您随时了解优化明细与进展。</p>
+            <ul class="mt-6 space-y-3">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0 text-[#1E40AF]" viewBox="0 0 20 20" fill="currentColor">
+                  <circle cx="10" cy="10" r="10" fill="#1E40AF"/>
+                  <path d="M6.5 10.5L8.5 12.5L13.5 7.5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+                <span class="text-[#475569]">专业团队提供GEO优化服务</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0 text-[#1E40AF]" viewBox="0 0 20 20" fill="currentColor">
+                  <circle cx="10" cy="10" r="10" fill="#1E40AF"/>
+                  <path d="M6.5 10.5L8.5 12.5L13.5 7.5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+                <span class="text-[#475569]">提供独立登录账号，实时查看优化进展</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0 text-[#1E40AF]" viewBox="0 0 20 20" fill="currentColor">
+                  <circle cx="10" cy="10" r="10" fill="#1E40AF"/>
+                  <path d="M6.5 10.5L8.5 12.5L13.5 7.5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+                <span class="text-[#475569]">计费明细、效果报表全程透明</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0 text-[#1E40AF]" viewBox="0 0 20 20" fill="currentColor">
+                  <circle cx="10" cy="10" r="10" fill="#1E40AF"/>
+                  <path d="M6.5 10.5L8.5 12.5L13.5 7.5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+                <span class="text-[#475569]">可自定义企业知识库，AI辅助生成优化内容</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0 text-[#1E40AF]" viewBox="0 0 20 20" fill="currentColor">
+                  <circle cx="10" cy="10" r="10" fill="#1E40AF"/>
+                  <path d="M6.5 10.5L8.5 12.5L13.5 7.5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+                <span class="text-[#475569]">在线充值，财务管理便捷高效</span>
+              </li>
+            </ul>
+          </div>
+          <!-- Right: Visual -->
+          <div class="bg-[#EFF6FF] rounded-[var(--radius-lg)] p-10">
+            <svg viewBox="0 0 400 280" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+              <!-- Client dashboard -->
+              <rect x="20" y="20" width="360" height="240" rx="10" fill="white" stroke="#E2E8F0" stroke-width="1.5"/>
+              <!-- Header -->
+              <rect x="20" y="20" width="360" height="40" rx="10" fill="#F8FAFC"/>
+              <rect x="28" y="20" width="344" height="32" fill="#F8FAFC"/>
+              <circle cx="52" cy="40" r="10" fill="#1E40AF" opacity="0.15"/>
+              <text x="52" y="45" font-size="10" fill="#1E40AF" text-anchor="middle" font-weight="600">E</text>
+              <rect x="72" y="36" width="60" height="6" rx="2" fill="#0F172A" opacity="0.5"/>
+              <rect x="72" y="46" width="40" height="5" rx="2" fill="#94A3B8" opacity="0.3"/>
+
+              <!-- KPI cards -->
+              <rect x="40" y="76" width="100" height="52" rx="6" fill="#EFF6FF" stroke="#1E40AF" stroke-width="0.5"/>
+              <text x="52" y="96" font-size="9" fill="#475569">优化任务</text>
+              <text x="52" y="118" font-size="20" font-weight="700" fill="#1E40AF">24</text>
+
+              <rect x="152" y="76" width="100" height="52" rx="6" fill="#EFF6FF" stroke="#1E40AF" stroke-width="0.5"/>
+              <text x="164" y="96" font-size="9" fill="#475569">本月费用</text>
+              <text x="164" y="118" font-size="16" font-weight="700" fill="#1E40AF">&#165;8,640</text>
+
+              <rect x="264" y="76" width="100" height="52" rx="6" fill="#EFF6FF" stroke="#1E40AF" stroke-width="0.5"/>
+              <text x="276" y="96" font-size="9" fill="#475569">排名收录</text>
+              <text x="276" y="118" font-size="20" font-weight="700" fill="#1E40AF">186</text>
+
+              <!-- Progress section -->
+              <rect x="40" y="144" width="324" height="52" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="0.5"/>
+              <text x="52" y="166" font-size="10" font-weight="600" fill="#0F172A">整体优化进度</text>
+              <rect x="52" y="176" width="260" height="8" rx="4" fill="#E2E8F0"/>
+              <rect x="52" y="176" width="182" height="8" rx="4" fill="#1E40AF"/>
+              <text x="328" y="184" font-size="10" fill="#1E40AF" font-weight="600">70%</text>
+
+              <!-- Recent report items -->
+              <rect x="40" y="210" width="324" height="36" rx="4" fill="white" stroke="#E2E8F0" stroke-width="0.5"/>
+              <rect x="52" y="222" width="70" height="6" rx="2" fill="#94A3B8" opacity="0.3"/>
+              <rect x="140" y="222" width="50" height="6" rx="2" fill="#94A3B8" opacity="0.3"/>
+              <rect x="210" y="222" width="60" height="6" rx="2" fill="#94A3B8" opacity="0.3"/>
+              <rect x="300" y="218" width="48" height="14" rx="3" fill="#059669" opacity="0.15"/>
+              <text x="324" y="228" font-size="8" fill="#059669" text-anchor="middle" font-weight="500">进行中</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== BOTTOM CTA SECTION ==================== -->
+      <section class="py-20 bg-gradient-to-r from-[#1E40AF] to-[#2563EB]">
+        <div class="text-center px-6">
+          <h2 class="text-white text-3xl font-bold">找到适合您的方案</h2>
+          <p class="text-white/80 mt-4">联系我们，获取定制化解决方案</p>
+          <a href="javascript:void(0)" onclick="openContactModal()"
+             data-dom-id="cta-contact"
+             class="inline-block mt-8 bg-white text-[#1E40AF] rounded-[var(--radius-md)] px-8 py-3 font-medium hover:bg-gray-100 transition-colors"
+          >联系我们</a>
+        </div>
+      </section>
+
+      <!-- ==================== FOOTER ==================== -->
+      <footer class="bg-[#0F172A]">
+        <div class="max-w-7xl mx-auto px-6 py-16">
+
+          <!-- Footer Grid: 4 columns desktop, 2 columns mobile -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+
+            <!-- Column 1: Brand -->
+            <div>
+              <h3 class="text-white text-lg font-semibold mb-4">GEO计费优化管理系统</h3>
+              <p class="text-gray-400 text-sm leading-relaxed">
+                专业的GEO排名计费与优化管理平台，助力企业实现智能化品牌管理
+              </p>
+            </div>
+
+            <!-- Column 2: 产品 -->
+            <div>
+              <h4 class="text-white text-sm font-semibold mb-4 uppercase tracking-wider">产品</h4>
+              <ul class="space-y-3">
+                <li><a href="/product-features" class="text-gray-400 text-sm hover:text-white transition-colors">产品功能</a></li>
+                <li><a href="/pricing" class="text-gray-400 text-sm hover:text-white transition-colors">产品价格</a></li>
+                <li><a href="/solutions" class="text-gray-400 text-sm hover:text-white transition-colors">解决方案</a></li>
+                <li><a href="/contact" class="text-gray-400 text-sm hover:text-white transition-colors">联系我们</a></li>
+              </ul>
+            </div>
+
+            <!-- Column 3: 支持 -->
+            <div>
+              <h4 class="text-white text-sm font-semibold mb-4 uppercase tracking-wider">支持</h4>
+              <ul class="space-y-3">
+                <li><a href="/help-center" class="text-gray-400 text-sm hover:text-white transition-colors">帮助中心</a></li>
+                <li><a href="/contact" class="text-gray-400 text-sm hover:text-white transition-colors">联系我们</a></li>
+              </ul>
+            </div>
+
+            <!-- Column 4: 联系方式 -->
+            <div>
+              <h4 class="text-white text-sm font-semibold mb-4 uppercase tracking-wider">联系方式</h4>
+              <ul class="space-y-4">
+                <li class="flex items-center gap-2 text-gray-400 text-sm">
+                  <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"></path>
+                  </svg>
+                  <span>13860403590</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <div class="w-20 h-20 bg-white/10 rounded-[var(--radius-md)] flex items-center justify-center flex-shrink-0">
+                    <img src="assets/customer-service-qr.png" alt="客服微信二维码" class="w-16 h-16 object-contain">
+                  </div>
+                  <div>
+                    <span class="text-gray-400 text-sm">微信扫码咨询</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- Bottom Bar -->
+          <div class="mt-12 pt-8 border-t border-gray-700 text-center">
+                        <p class="text-gray-400 text-sm mb-2">AiGeo.chinaz.com</p>
+            <p class="text-gray-400 text-sm">&copy; 2026 GEO计费优化管理系统 版权所有</p>
+            <p class="text-gray-500 text-xs mt-2"><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-300 transition-colors">闽ICP备08105208号</a></p>
+          </div>
+
+        </div>
+      </footer>
+
+    </main>
+    <script>lucide.createIcons();</script>
+<!-- ==================== CONTACT MODAL ==================== -->
+<div id="contact-modal" class="fixed inset-0 z-[100] hidden items-center justify-center">
+  <!-- Backdrop -->
+  <div class="absolute inset-0 bg-black/50" onclick="closeContactModal()"></div>
+  <!-- Modal Content -->
+  <div class="relative bg-white rounded-[var(--radius-lg)] shadow-[var(--shadow-float)] w-full max-w-md mx-4 p-8">
+    <!-- Close button -->
+    <button onclick="closeContactModal()" class="absolute top-4 right-4 text-[#94A3B8] hover:text-[#0F172A] transition-colors">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+    <!-- Modal Header -->
+    <h3 class="text-xl font-bold text-[#0F172A] mb-6">联系我们</h3>
+    <!-- Contact Info -->
+    <div class="space-y-5">
+      <!-- Contact Person -->
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-[#EFF6FF] rounded-full flex items-center justify-center flex-shrink-0">
+          <svg class="w-5 h-5 text-[#1E40AF]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="text-sm text-[#94A3B8]">联系人</div>
+          <div class="text-base font-semibold text-[#0F172A]">张经理</div>
+        </div>
+      </div>
+      <!-- Phone -->
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-[#EFF6FF] rounded-full flex items-center justify-center flex-shrink-0">
+          <svg class="w-5 h-5 text-[#1E40AF]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="text-sm text-[#94A3B8]">联系电话</div>
+          <div class="text-base font-semibold text-[#0F172A]">13860403590</div>
+        </div>
+      </div>
+      <!-- WeChat QR -->
+      <div class="flex items-start gap-3">
+        <div class="w-10 h-10 bg-[#EFF6FF] rounded-full flex items-center justify-center flex-shrink-0">
+          <svg class="w-5 h-5 text-[#1E40AF]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="text-sm text-[#94A3B8]">微信客服</div>
+          <div class="mt-2 w-28 h-28 bg-[#F8FAFC] border border-[var(--color-border)] rounded-[var(--radius-md)] flex items-center justify-center">
+            <div class="text-center">
+              <img src="assets/customer-service-qr.png" alt="客服微信二维码" class="w-20 h-20 mx-auto object-contain">
+              <p class="text-[10px] text-[#94A3B8] mt-1">微信扫码咨询</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function openContactModal() {
+  var m = document.getElementById('contact-modal');
+  m.classList.remove('hidden');
+  m.classList.add('flex');
+  document.body.style.overflow = 'hidden';
+}
+function closeContactModal() {
+  var m = document.getElementById('contact-modal');
+  m.classList.add('hidden');
+  m.classList.remove('flex');
+  document.body.style.overflow = '';
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,300 @@
+{
+  "project": {
+    "name": "GEO计费优化管理系统官网",
+    "path": "/workspace/geo-billing-system",
+    "operation": "create",
+    "deviceType": "desktop",
+    "language": "zh-CN",
+    "dashboardMode": false,
+    "replicationMode": null,
+    "sourceUrl": null,
+    "visualSpecExcerpt": null,
+    "styleDefinitionBrief": "B2B SaaS产品官网，科技专业风，深蓝主色调(#1E40AF)，干净白色背景，Inter+系统中文字体栈，专业可信的视觉呈现",
+    "designRead": "showcase / B2B企业客户 / 专业科技 / 中等密度 / 避免泛蓝渐变",
+    "designDials": {
+      "layoutVariance": 3,
+      "motionIntensity": 2,
+      "visualDensity": 3
+    },
+    "styleContinuityAnchors": {
+      "colorSystem": {
+        "primaryColorRole": "single brand hue used for primary CTA and primary selected states",
+        "brandHuePolicy": "free-explore uses no secondary/accent brand hue; identities/categories use neutral or primary tints",
+        "stateColors": "semantic success/warning/error/info tokens only"
+      },
+      "shapeSystem": "restrained radius scale: sm=4px, md=8px, lg=12px, full=9999px",
+      "typographySystem": "Inter + PingFang SC / Microsoft YaHei CJK fallback; sans-serif only",
+      "spacingSystem": "4px base, consistent 8/12/16/24/32/48/64/80 increments",
+      "componentLanguage": "clean card surfaces with border, no heavy shadows on static elements",
+      "surfaceAndDepth": "border-first depth; shadow alpha <= 0.05 for static, > 0.05 only for floating layers",
+      "imageryAndIconography": "tech-themed hero images, clean line icons, no decorative imagery",
+      "interactionTone": "professional, subtle hover feedback, smooth transitions"
+    },
+    "specsConstraints": null,
+    "sharedProjectShellContract": {
+      "navigationShell": "sticky top nav bar: logo left, nav links center, CTA button right; white background with subtle bottom border; footer: 4-column link layout with brand info",
+      "primaryColorSystem": "single primary brand hue #1E40AF; no secondary/accent brand hue",
+      "typographySystem": "Inter + PingFang SC / Microsoft YaHei; title semibold, body regular",
+      "radiusScale": "sm=4px, md=8px, lg=12px, full=9999px; no radius above 12px for static elements",
+      "surfaceDepthModel": "border-first; card shadow alpha <= 0.05; floating layers (dropdown/modal) may use shadow alpha > 0.05",
+      "ctaStyle": "filled primary bg, white text, md radius, medium weight, px-6 py-3, hover darken",
+      "alignmentRules": "center-aligned hero; left-aligned body content; consistent 8px grid"
+    },
+    "generationTree": {
+      "root": {
+        "nodeId": "gen-project-shell",
+        "kind": "project-shell",
+        "pageIds": ["page-index", "page-features", "page-solutions", "page-contact"],
+        "output": "partials/project-shell.html",
+        "sharedRegions": ["header-nav", "footer"],
+        "privateRegions": [],
+        "mutableSlots": ["activeNavItem"],
+        "status": "planned",
+        "children": [
+          {
+            "nodeId": "gen-page-index",
+            "kind": "page-leaf",
+            "pageIds": ["page-index"],
+            "output": "pages/index.html",
+            "sharedRegions": [],
+            "privateRegions": ["hero section", "stats section", "feature preview", "CTA section"],
+            "mutableSlots": ["activeNavItem"],
+            "status": "planned",
+            "children": []
+          },
+          {
+            "nodeId": "gen-page-features",
+            "kind": "page-leaf",
+            "pageIds": ["page-features"],
+            "output": "pages/features.html",
+            "sharedRegions": [],
+            "privateRegions": ["page header", "9 feature cards"],
+            "mutableSlots": ["activeNavItem"],
+            "status": "planned",
+            "children": []
+          },
+          {
+            "nodeId": "gen-page-solutions",
+            "kind": "page-leaf",
+            "pageIds": ["page-solutions"],
+            "output": "pages/solutions.html",
+            "sharedRegions": [],
+            "privateRegions": ["page header", "4 role solution blocks", "flow diagram"],
+            "mutableSlots": ["activeNavItem"],
+            "status": "planned",
+            "children": []
+          },
+          {
+            "nodeId": "gen-page-contact",
+            "kind": "page-leaf",
+            "pageIds": ["page-contact"],
+            "output": "pages/contact.html",
+            "sharedRegions": [],
+            "privateRegions": ["contact form section", "info section"],
+            "mutableSlots": ["activeNavItem"],
+            "status": "planned",
+            "children": []
+          }
+        ]
+      }
+    }
+  },
+  "designSource": {
+    "operatingMode": "free-explore",
+    "libraryIdentity": null,
+    "cssFilePath": "/workspace/geo-billing-system/colors_and_type.css",
+    "brandPrefix": "geo",
+    "themeMode": "light",
+    "designDecisionSummary": "Deep blue primary #1E40AF, white background, Inter + CJK system font, restrained radius, border-first depth, professional B2B SaaS aesthetic",
+    "styleConstraints": {
+      "radiusMax": 12,
+      "spacingBase": 4,
+      "fontSizeBody": 16,
+      "fontSizeMin": 12,
+      "controlHeightDefault": 40,
+      "controlHeightLarge": 48
+    }
+  },
+  "pages": [
+    {
+      "nodeId": "page-index",
+      "slug": "index",
+      "title": "首页",
+      "htmlSrc": "pages/index.html",
+      "pageIndex": 1,
+      "stateGroupId": null,
+      "stateRole": null,
+      "baseStatePageId": null,
+      "pageType": "showcase",
+      "businessScenario": "产品官网首页，展示核心价值主张和关键数据",
+      "visualNorthStar": "Hero section with bold headline, data dashboard preview, and clear CTA",
+      "compositionPattern": "hero-then-content-stack",
+      "continuityAnchors": ["header-nav treatment", "footer treatment", "CTA style"],
+      "imagePlan": ["hero-main.jpg"],
+      "chartsRequired": false
+    },
+    {
+      "nodeId": "page-features",
+      "slug": "features",
+      "title": "核心功能",
+      "htmlSrc": "pages/features.html",
+      "pageIndex": 2,
+      "stateGroupId": null,
+      "stateRole": null,
+      "baseStatePageId": null,
+      "pageType": "showcase",
+      "businessScenario": "展示9大核心功能的详细说明",
+      "visualNorthStar": "Clean grid layout with icon-led feature cards, each with clear title and description",
+      "compositionPattern": "header-then-card-grid",
+      "continuityAnchors": ["header-nav treatment", "footer treatment", "CTA style"],
+      "imagePlan": [],
+      "chartsRequired": false
+    },
+    {
+      "nodeId": "page-solutions",
+      "slug": "solutions",
+      "title": "解决方案",
+      "htmlSrc": "pages/solutions.html",
+      "pageIndex": 3,
+      "stateGroupId": null,
+      "stateRole": null,
+      "baseStatePageId": null,
+      "pageType": "showcase",
+      "businessScenario": "按角色展示不同端的功能方案",
+      "visualNorthStar": "Tabbed or sectioned layout showing 4 user roles with their specific capabilities",
+      "compositionPattern": "header-then-content-stack",
+      "continuityAnchors": ["header-nav treatment", "footer treatment", "CTA style"],
+      "imagePlan": [],
+      "chartsRequired": false
+    },
+    {
+      "nodeId": "page-contact",
+      "slug": "contact",
+      "title": "联系我们",
+      "htmlSrc": "pages/contact.html",
+      "pageIndex": 4,
+      "stateGroupId": null,
+      "stateRole": null,
+      "baseStatePageId": null,
+      "pageType": "task-driven",
+      "businessScenario": "联系表单和公司信息",
+      "visualNorthStar": "Clean two-column layout: form on left, contact info on right",
+      "compositionPattern": "header-then-two-column",
+      "continuityAnchors": ["header-nav treatment", "footer treatment", "CTA style"],
+      "imagePlan": [],
+      "chartsRequired": false
+    }
+  ],
+  "assets": [
+    {
+      "filename": "hero-main.jpg",
+      "role": "critical-hero",
+      "owningPage": "index",
+      "semanticDescription": "GEO billing optimization system dashboard hero visual",
+      "status": "planned"
+    }
+  ],
+  "wiringPlan": [
+    {
+      "sourceNodeId": "page-index",
+      "domId": "cta-features",
+      "targetPageId": "page-features"
+    },
+    {
+      "sourceNodeId": "page-features",
+      "domId": "cta-solutions",
+      "targetPageId": "page-solutions"
+    },
+    {
+      "sourceNodeId": "page-solutions",
+      "domId": "cta-contact",
+      "targetPageId": "page-contact"
+    }
+  ],
+  "hiddenInteractionPlan": [
+    {
+      "sourceNodeId": "page-index",
+      "domId": "nav-features",
+      "targetPageId": "page-features",
+      "hideEdge": true,
+      "reason": "global nav"
+    },
+    {
+      "sourceNodeId": "page-index",
+      "domId": "nav-solutions",
+      "targetPageId": "page-solutions",
+      "hideEdge": true,
+      "reason": "global nav"
+    },
+    {
+      "sourceNodeId": "page-index",
+      "domId": "nav-contact",
+      "targetPageId": "page-contact",
+      "hideEdge": true,
+      "reason": "global nav"
+    },
+    {
+      "sourceNodeId": "page-features",
+      "domId": "nav-index",
+      "targetPageId": "page-index",
+      "hideEdge": true,
+      "reason": "global nav"
+    },
+    {
+      "sourceNodeId": "page-features",
+      "domId": "nav-solutions",
+      "targetPageId": "page-solutions",
+      "hideEdge": true,
+      "reason": "global nav"
+    },
+    {
+      "sourceNodeId": "page-features",
+      "domId": "nav-contact",
+      "targetPageId": "page-contact",
+      "hideEdge": true,
+      "reason": "global nav"
+    },
+    {
+      "sourceNodeId": "page-solutions",
+      "domId": "nav-index",
+      "targetPageId": "page-index",
+      "hideEdge": true,
+      "reason": "global nav"
+    },
+    {
+      "sourceNodeId": "page-solutions",
+      "domId": "nav-features",
+      "targetPageId": "page-features",
+      "hideEdge": true,
+      "reason": "global nav"
+    },
+    {
+      "sourceNodeId": "page-solutions",
+      "domId": "nav-contact",
+      "targetPageId": "page-contact",
+      "hideEdge": true,
+      "reason": "global nav"
+    },
+    {
+      "sourceNodeId": "page-contact",
+      "domId": "nav-index",
+      "targetPageId": "page-index",
+      "hideEdge": true,
+      "reason": "global nav"
+    },
+    {
+      "sourceNodeId": "page-contact",
+      "domId": "nav-features",
+      "targetPageId": "page-features",
+      "hideEdge": true,
+      "reason": "global nav"
+    },
+    {
+      "sourceNodeId": "page-contact",
+      "domId": "nav-solutions",
+      "targetPageId": "page-solutions",
+      "hideEdge": true,
+      "reason": "global nav"
+    }
+  ]
+}

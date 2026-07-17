@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品功能</title>
+    <style id="theme-vars">
+:root {
+  /* === Brand Colors === */
+  --color-primary: #1E40AF;
+  --color-primary-light: #2563EB;
+  --color-primary-lighter: #3B82F6;
+  --color-primary-lightest: #DBEAFE;
+  --color-primary-dark: #1E3A8A;
+  --color-primary-50: #EFF6FF;
+  --color-primary-100: #DBEAFE;
+  --color-primary-200: #BFDBFE;
+  --color-primary-500: #3B82F6;
+  --color-primary-600: #2563EB;
+  --color-primary-700: #1D4ED8;
+  --color-primary-800: #1E40AF;
+  --color-primary-900: #1E3A8A;
+  --color-primary-950: #172554;
+
+  /* === Neutrals === */
+  --color-bg: #FFFFFF;
+  --color-bg-secondary: #F8FAFC;
+  --color-bg-tertiary: #F1F5F9;
+  --color-surface: #FFFFFF;
+  --color-border: #E2E8F0;
+  --color-border-light: #F1F5F9;
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #475569;
+  --color-text-tertiary: #94A3B8;
+  --color-text-inverse: #FFFFFF;
+
+  /* === State Colors === */
+  --state-success: #059669;
+  --state-warning: #D97706;
+  --state-error: #DC2626;
+  --state-info: #2563EB;
+
+  /* === Radius === */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* === Typography === */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+
+  /* Type Scale */
+  --text-xs: 0.75rem;
+  --text-xs-lh: 1rem;
+  --text-sm: 0.875rem;
+  --text-sm-lh: 1.25rem;
+  --text-base: 1rem;
+  --text-base-lh: 1.5rem;
+  --text-lg: 1.125rem;
+  --text-lg-lh: 1.75rem;
+  --text-xl: 1.25rem;
+  --text-xl-lh: 1.75rem;
+  --text-2xl: 1.5rem;
+  --text-2xl-lh: 2rem;
+  --text-3xl: 1.875rem;
+  --text-3xl-lh: 2.25rem;
+  --text-4xl: 2.25rem;
+  --text-4xl-lh: 2.5rem;
+  --text-5xl: 3rem;
+  --text-5xl-lh: 1.1;
+
+  /* Font Weights */
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  /* === Spacing === */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* === Shadows === */
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-card-hover: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-float: 0 10px 25px rgba(0, 0, 0, 0.08);
+  --shadow-nav: 0 1px 3px rgba(0, 0, 0, 0.04);
+
+  /* === Transitions === */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 350ms ease;
+}
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
+    <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+    <style type="text/tailwindcss">
+  @theme inline {
+    --color-primary: var(--color-primary);
+    --color-border: var(--color-border);
+  }
+  @layer base {
+    body { background: var(--color-surface); color: var(--color-text-primary); }
+    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
+    th { @apply whitespace-nowrap; }
+  }
+    </style>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        background-color: currentColor;
+      }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+<div id="project-shell">
+
+  <!-- ==================== HEADER NAVIGATION ==================== -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-[var(--color-border)]">
+    <nav class="max-w-[1280px] mx-auto px-6 h-16 flex items-center justify-between">
+
+      <!-- Logo -->
+      <a href="/" class="flex-shrink-0 flex items-center gap-2.5">
+            <img src="assets/logo.png" alt="Logo" class="w-8 h-8 rounded">
+            <div class="flex flex-col leading-tight">
+              <span class="text-[#1E40AF] font-bold tracking-tight" style="font-size:1.1rem;">GEO计费优化管理系统</span>
+              <span class="text-[#94A3B8]" style="font-size:0.65rem;">AIGeo.chinaz.com</span>
+            </div>
+          </a>
+
+      <!-- Desktop Navigation Links -->
+      <ul class="hidden md:flex items-center gap-8">
+        <li>
+          <a href="/"
+             data-dom-id="nav-index"
+             data-nav-key="index"
+             class="relative py-5 text-sm transition-colors text-[#475569] hover:text-[#1E40AF]"
+          >首页</a>
+        </li>
+        <li>
+          <a href="/product-features"
+             data-dom-id="nav-product-features"
+             data-nav-key="product-features"
+             data-active="true"
+             class="relative py-5 text-sm transition-colors text-[#1E40AF] font-semibold"
+          >产品功能</a>
+        </li>
+        <li>
+          <a href="/features"
+             data-dom-id="nav-features"
+             data-nav-key="features"
+             class="relative py-5 text-sm transition-colors text-[#475569] hover:text-[#1E40AF]"
+          >核心功能</a>
+        </li>
+        <li>
+          <a href="/solutions"
+             data-dom-id="nav-solutions"
+             data-nav-key="solutions"
+             class="relative py-5 text-sm transition-colors text-[#475569] hover:text-[#1E40AF]"
+          >解决方案</a>
+        </li>
+        <li>
+              <a href="/pricing"
+                 data-dom-id="nav-pricing"
+                 data-nav-key="pricing"
+                 class="relative py-5 text-sm transition-colors text-[#475569] hover:text-[#1E40AF]"
+              >产品价格</a>
+            </li>
+        <li>
+          <a href="/help-center"
+             data-dom-id="nav-help-center"
+             data-nav-key="help-center"
+             class="relative py-5 text-sm transition-colors text-[#475569] hover:text-[#1E40AF]"
+          >帮助中心</a>
+        </li>
+        <li>
+          <a href="/contact"
+             data-dom-id="nav-contact"
+             data-nav-key="contact"
+             class="relative py-5 text-sm transition-colors text-[#475569] hover:text-[#1E40AF]"
+          >联系我们</a>
+        </li>
+      </ul>
+
+      <!-- Right Section: CTA + Mobile Hamburger -->
+      <div class="flex items-center gap-4">
+        <!-- CTA Button -->
+        <a href="javascript:void(0)" onclick="openContactModal()"
+           class="hidden sm:inline-flex items-center px-6 py-2.5 text-sm font-medium text-white rounded-[var(--radius-md)] bg-[#1E40AF] hover:bg-[#1E3A8A] transition-colors"
+        >免费试用</a>
+
+        <!-- Mobile Hamburger Button -->
+        <button
+          type="button"
+          class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg text-[#475569] hover:text-[#1E40AF] hover:bg-[var(--color-bg-secondary)] transition-colors"
+          aria-label="打开菜单"
+          data-dom-id="mobile-menu-toggle"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+
+    </nav>
+
+    <!-- Mobile Menu Panel -->
+    <div class="md:hidden hidden border-t border-[var(--color-border)] bg-white" data-dom-id="mobile-menu-panel">
+      <div class="px-6 py-4 space-y-1">
+        <a href="/"
+           data-dom-id="nav-index-mobile"
+           data-nav-key="index"
+           class="block px-3 py-2.5 rounded-lg text-sm text-[#475569] hover:text-[#1E40AF] hover:bg-[var(--color-bg-secondary)] transition-colors"
+        >首页</a>
+        <a href="/product-features"
+           data-dom-id="nav-product-features-mobile"
+           data-nav-key="product-features"
+           data-active="true"
+           class="block px-3 py-2.5 rounded-lg text-sm text-[#1E40AF] font-semibold bg-[var(--color-bg-tertiary)] transition-colors"
+        >产品功能</a>
+        <a href="/features"
+           data-dom-id="nav-features-mobile"
+           data-nav-key="features"
+           class="block px-3 py-2.5 rounded-lg text-sm text-[#475569] hover:text-[#1E40AF] hover:bg-[var(--color-bg-secondary)] transition-colors"
+        >核心功能</a>
+        <a href="/solutions"
+           data-dom-id="nav-solutions-mobile"
+           data-nav-key="solutions"
+           class="block px-3 py-2.5 rounded-lg text-sm text-[#475569] hover:text-[#1E40AF] hover:bg-[var(--color-bg-secondary)] transition-colors"
+        >解决方案</a>
+        <a href="/pricing"
+           data-dom-id="nav-pricing-mobile"
+           data-nav-key="pricing"
+           class="block px-3 py-2.5 rounded-lg text-sm text-[#475569] hover:text-[#1E40AF] hover:bg-[var(--color-bg-secondary)] transition-colors"
+        >产品价格</a>
+        <a href="/help-center"
+           data-dom-id="nav-help-center-mobile"
+           data-nav-key="help-center"
+           class="block px-3 py-2.5 rounded-lg text-sm text-[#475569] hover:text-[#1E40AF] hover:bg-[var(--color-bg-secondary)] transition-colors"
+        >帮助中心</a>
+        <a href="/contact"
+           data-dom-id="nav-contact-mobile"
+           data-nav-key="contact"
+           class="block px-3 py-2.5 rounded-lg text-sm text-[#475569] hover:text-[#1E40AF] hover:bg-[var(--color-bg-secondary)] transition-colors"
+        >联系我们</a>
+        <div class="pt-3 border-t border-[var(--color-border)]">
+          <a href="javascript:void(0)" onclick="openContactModal()"
+             class="block w-full text-center px-6 py-2.5 text-sm font-medium text-white rounded-[var(--radius-md)] bg-[#1E40AF] hover:bg-[#1E3A8A] transition-colors"
+          >免费试用</a>
+        </div>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- Spacer to offset fixed header height -->
+  <div class="h-16"></div>
+
+  <!-- ==================== PAGE HEADER ==================== -->
+  <section class="bg-white pt-32 pb-8 px-6 text-center">
+    <h1 class="text-4xl font-bold text-[#0F172A]">产品功能</h1>
+    <p class="text-lg text-[#475569] mt-4">从不同角色视角，深入了解GEO计费优化管理系统的核心能力</p>
+  </section>
+
+  <!-- ==================== TAB NAVIGATION ==================== -->
+  <div class="sticky top-16 z-40 bg-white border-b border-[var(--color-border)]">
+    <div class="max-w-3xl mx-auto py-1 px-6 flex justify-center">
+      <button
+        data-dom-id="tab-tenant"
+        data-tab="panel-tenant"
+        class="tab-btn px-6 py-3 text-sm font-semibold rounded-t-[var(--radius-md)] transition-colors text-[#1E40AF] bg-[#EFF6FF]"
+      >GEO服务商SAAS</button>
+      <button
+        data-dom-id="tab-agent"
+        data-tab="panel-agent"
+        class="tab-btn px-6 py-3 text-sm font-medium rounded-t-[var(--radius-md)] transition-colors text-[#475569] hover:text-[#1E40AF] hover:bg-[var(--color-bg-secondary)]"
+      >代理商</button>
+      <button
+        data-dom-id="tab-client"
+        data-tab="panel-client"
+        class="tab-btn px-6 py-3 text-sm font-medium rounded-t-[var(--radius-md)] transition-colors text-[#475569] hover:text-[#1E40AF] hover:bg-[var(--color-bg-secondary)]"
+      >终端直客</button>
+    </div>
+  </div>
+
+  <!-- ==================== TAB CONTENT: 租户端 SaaS ==================== -->
+  <div id="panel-tenant" class="tab-panel">
+
+    <!-- Section Intro -->
+    <div class="max-w-6xl mx-auto px-6 py-12">
+      <p class="text-sm font-medium text-[#1E40AF] uppercase tracking-wider">租户端 SaaS平台</p>
+      <h2 class="text-2xl md:text-3xl font-bold text-[#0F172A] mt-2">九大核心功能，全链路SaaS运营管理</h2>
+      <p class="text-[#475569] mt-3 max-w-3xl">租户通过SaaS平台进行计费管理、报表分析、GEO优化、代理商运营、客户管理、权限控制、财务管理及数据采集全流程操作</p>
+    </div>
+
+    <!-- 9 Feature Blocks -->
+    <div class="max-w-6xl mx-auto px-6 pb-20 space-y-12">
+
+      <!-- ===== Feature 1: 计费功能 ===== -->
+      <div class="bg-white border border-[var(--color-border)] rounded-[var(--radius-lg)] p-8 md:p-10 hover:shadow-[var(--shadow-card-hover)] transition-shadow">
+        <div class="flex items-start gap-5">
+          <div class="flex-shrink-0 w-12 h-12 rounded-[var(--radius-md)] bg-[#EFF6FF] flex items-center justify-center">
+            <span class="text-[#1E40AF] font-bold text-lg">01</span>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-xl font-semibold text-[#0F172A]">计费功能</h3>
+            <p class="text-[#475569] mt-2 leading-relaxed">支持按天和固定两种计费模式，灵活适配不同业务场景，精准核算每一笔费用</p>
+            <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div class="flex items-start gap-2.5 p-3 rounded-[var(--radius-md)] bg-[var(--color-bg-secondary)]">
+                <svg class="w-5 h-5 text-[#1E40AF] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
+                <div>
+                  <p class="text-sm font-medium text-[#0F172A]">按天计费</p>
+                  <p class="text-xs text-[#475569] mt-0.5">按有效排名收录天数自动计费，精准到日</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5 p-3 rounded-[var(--radius-md)] bg-[var(--color-bg-secondary)]">
+                <svg class="w-5 h-5 text-[#1E40AF] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"/></svg>
+                <div>
+                  <p class="text-sm font-medium text-[#0F172A]">固定计费</p>
+                  <p class="text-xs text-[#475569] mt-0.5">支持包月、包年等固定周期计费模式</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Feature 2: 报表功能 ===== -->
+      <div class="bg-white border border-[var(--color-border)] rounded-[var(--radius-lg)] p-8 md:p-10 hover:shadow-[var(--shadow-card-hover)] transition-shadow">
+        <div class="flex items-start gap-5">
+          <div class="flex-shrink-0 w-12 h-12 rounded-[var(--radius-md)] bg-[#EFF6FF] flex items-center justify-center">
+            <span class="text-[#1E40AF] font-bold text-lg">02</span>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-xl font-semibold text-[#0F172A]">报表功能</h3>
+            <p class="text-[#475569] mt-2 leading-relaxed">多维度报表分析系统，支持按天、按月查看数据趋势，并可自定义报表模板</p>
+            <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div class="flex items-start gap-2.5 p-3 rounded-[var(--radius-md)] bg-[var(--color-bg-secondary)]">
+                <svg class="w-5 h-5 text-[#1E40AF] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg>
+                <div>
+                  <p class="text-sm font-medium text-[#0F172A]">按天/按月报表</p>
+                  <p class="text-xs text-[#475569] mt-0.5">按天报表、按月报表，数据趋势一目了然</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5 p-3 rounded-[var(--radius-md)] bg-[var(--color-bg-secondary)]">
+                <svg class="w-5 h-5 text-[#1E40AF] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"/></svg>
+                <div>
+                  <p class="text-sm font-medium text-[#0F172A]">自定义报表</p>
+                  <p class="text-xs text-[#475569] mt-0.5">支持自定义报表模板与数据导出</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Feature 3: GEO优化功能 ===== -->
+      <div class="bg-white border border-[var(--color-border)] rounded-[var(--radius-lg)] p-8 md:p-10 hover:shadow-[var(--shadow-card-hover)] transition-shadow">
+        <div class="flex items-start gap-5">
+          <div class="flex-shrink-0 w-12 h-12 rounded-[var(--radius-md)] bg-[#EFF6FF] flex items-center justify-center">
+            <span class="text-[#1E40AF] font-bold text-lg">03</span>
+          </div>
+          <div class="flex-1">
+            <div class="flex items-center gap-3">
+              <h3 class="text-xl font-semibold text-[#0F172A]">GEO优化功能</h3>
+            </div>
+            <p class="text-[#475569] mt-2 leading-relaxed">AI驱动的智能内容生成与多渠道分发体系，全面提升企业GEO排名表现</p>
+            <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div class="flex items-start gap-2.5 p-3 rounded-[var(--radius-md)] bg-[var(--color-bg-secondary)]">
+                <svg class="w-5 h-5 text-[#1E40AF] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>
+                <div>
+                  <p class="text-sm font-medium text-[#0F172A]">企业知识库</p>
+                  <p class="text-xs text-[#475569] mt-0.5">自定义企业知识库内容，AI智能学习与内容生成</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5 p-3 rounded-[var(--radius-md)] bg-[var(--color-bg-secondary)]">
+                <svg class="w-5 h-5 text-[#1E40AF] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z"/></svg>
+                <div>
+                  <p class="text-sm font-medium text-[#0F172A]">文章AI生成</p>
+                  <p class="text-xs text-[#475569] mt-0.5">基于知识库自动生成高质量GEO优化文章</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5 p-3 rounded-[var(--radius-md)] bg-[var(--color-bg-secondary)]">
+                <svg class="w-5 h-5 text-[#1E40AF] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z"/></svg>
+                <div>
+                  <p class="text-sm font-medium text-[#0F172A]">几千家官媒投稿</p>
+                  <p class="text-xs text-[#475569] mt-0.5">对接数千家官媒投稿渠道，批量分发内容</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5 p-3 rounded-[var(--radius-md)] bg-[var(--color-bg-secondary)]">
+                <svg class="w-5 h-5 text-[#1E40AF] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"/></svg>
+                <div>
+                  <p class="text-sm font-medium text-[#0F172A]">海外媒体</p>
+                  <p class="text-xs text-[#475569] mt-0.5">海外媒体发布与海外GEO优化</p>
+                </div>
+              </div>
+            </div>
+            <div class="mt-3">
+              <span class="inline-block text-xs font-medium px-2.5 py-1 rounded-full bg-[#FEF3C7] text-[#D97706]">海外GEO开发中</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Feature 4: 代理商管理功能 ===== -->
+      <div class="bg-white border border-[var(--color-border)] rounded-[var(--radius-lg)] p-8 md:p-10 hover:shadow-[var(--shadow-card-hover)] transition-shadow">
+        <div class="flex items-start gap-5">
+          <div class="flex-shrink-0 w-12 h-12 rounded-[var(--radius-md)] bg-[#EFF6FF] flex items-center justify-center">
+            <span class="text-[#1E40AF] font-bold text-lg">04</span>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-xl font-semibold text-[#0F172A]">代理商管理功能</h3>
+            <p class="text-[#475569] mt-2 leading-relaxed">完善的多级代理体系管理，支持OEM品牌自定义与独立财务核算</p>
+            <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div class="flex items-start gap-2.5 p-3 rounded-[var(--radius-md)] bg-[var(--color-bg-secondary)]">
+                <svg class="w-5 h-5 text-[#1E40AF] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/></svg>
+                <div>
+                  <p class="text-sm font-medium text-[#0F172A]">一二级代理体系</p>
+                  <p class="text-xs text-[#475569] mt-0.5">可发展一二级代理，构建多级渠道网络</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5 p-3 rounded-[var(--radius-md)] bg-[var(--color-bg-secondary)]">
+                <svg class="w-5 h-5 text-[#1E40AF] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"/></svg>
+                <div>
+                  <p class="text-sm font-medium text-[#0F172A]">OEM自定义品牌</p>
+                  <p class="text-xs text-[#475569] mt-0.5">代理可自定义品牌名称、Logo、域名</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5 p-3 rounded-[var(--radius-md)] bg-[var(--color-bg-secondary)]">
+                <svg class="w-5 h-5 text-[#1E40AF] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"/></svg>
+                <div>
+                  <p class="text-sm font-medium text-[#0F172A]">独立核算</p>
+                  <p class="text-xs text-[#475569] mt-0.5">代理商独立财务核算，资金自主管理</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Feature 5: 自定义产品功能 ===== -->
+      <div class="bg-white border border-[var(--color-border)] rounded-[var(--radius-lg)] p-8 md:p-10 hover:shadow-[var(--shadow-card-hover)] transition-shadow">
+        <div class="flex items-start gap-5">
+          <div class="flex-shrink-0 w-12 h-12 rounded-[var(--radius-md)] bg-[#EFF6FF] flex items-center justify-center">
+            <span class="text-[#1E40AF] font-bold text-lg">05</span>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-xl font-semibold text-[#0F172A]">自定义产品功能</h3>
+            <p class="text-[#475569] mt-2 leading-relaxed">高度灵活的产品与定价体系，支持多层级自定义收费模式</p>
+            <div class="mt-5 grid grid-cols-1 md:grid-cols-3 gap-3">
+              <div class="flex items-start gap-2.5 p-3 rounded-[var(--radius-md)] bg-[var(--color-bg-secondary)]">
+                <svg class="w-5 h-5 text-[#1E40AF] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-2.25-1.313M21 7.5v2.25m0-2.25l-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3l2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0 6.75l2.25-1.313M12 21.75V19.5m0 2.25l-2.25-1.313m0-16.875L12 2.25l2.25 1.313M21 14.25v2.25l-2.25 1.313m-13.5 0L3 16.5v-2.25"/></svg>
+                <div>
+                  <p class="text-sm font-medium text-[#0F172A]">自定义产品</p>
+                  <p class="text-xs text-[#475569] mt-0.5">灵活创建产品与功能模块</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5 p-3 rounded-[var(--radius-md)] bg-[var(--color-bg-secondary)]">
+                <svg class="w-5 h-5 text-[#1E40AF] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <div>
+                  <p class="text-sm font-medium text-[#0F172A]">自定义收费模式</p>
+                  <p class="text-xs text-[#475569] mt-0.5">按天/包月/包年灵活配置</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5 p-3 rounded-[var(--radius-md)] bg-[var(--color-bg-secondary)]">
+                <svg class="w-5 h-5 text-[#1E40AF] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V13.5zm0 2.25h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V18zm2.498-6.75h.007v.008h-.007v-.008zm0 2.25h.007v.008h-.007V13.5zm0 2.25h.007v.008h-.007v-.008zm0 2.25h.007v.008h-.007V18zm2.504-6.75h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V13.5zm0 2.25h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V18zm2.498-6.75h.008v.008h-.008v-.008zM15.75 18h.008v.008h-.008V18zM3.375 19.5h17.25a1.875 1.875 0 001.875-1.875V6.375a1.875 1.875 0 00-1.875-1.875H3.375A1.875 1.875 0 001.5 6.375v11.25c0 1.035.84 1.875 1.875 1.875z"/></svg>
+                <div>
+                  <p class="text-sm font-medium text-[#0F172A]">灵活定价</p>
+                  <p class="text-xs text-[#475569] mt-0.5">一二级代理自定义定价，每客户可单独定价</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Feature 6: 客户管理系统 ===== -->
+      <div class="bg-white border border-[var(--color-border)] rounded-[var(--radius-lg)] p-8 md:p-10 hover:shadow-[var(--shadow-card-hover)] transition-shadow">
+        <div class="flex items-start gap-5">
+          <div class="flex-shrink-0 w-12 h-12 rounded-[var(--radius-md)] bg-[#EFF6FF] flex items-center justify-center">
+            <span class="text-[#1E40AF] font-bold text-lg">06</span>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-xl font-semibold text-[#0F172A]">客户管理系统</h3>
+            <p class="text-[#475569] mt-2 leading-relaxed">终端客户自助管理平台，服务全程透明可控</p>
+            <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div class="flex items-start gap-2.5 p-3 rounded-[var(--radius-md)] bg-[var(--color-bg-secondary)]">
+                <svg class="w-5 h-5 text-[#1E40AF] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
+                <div>
+                  <p class="text-sm font-medium text-[#0F172A]">计费明细查看</p>
+                  <p class="text-xs text-[#475569] mt-0.5">终端客户可实时查看每日计费详情</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5 p-3 rounded-[var(--radius-md)] bg-[var(--color-bg-secondary)]">
+                <svg class="w-5 h-5 text-[#1E40AF] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
+                <div>
+                  <p class="text-sm font-medium text-[#0F172A]">报表明细查看</p>
+                  <p class="text-xs text-[#475569] mt-0.5">查看服务报表与数据趋势分析</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5 p-3 rounded-[var(--radius-md)] bg-[var(--color-bg-secondary)]">
+                <svg class="w-5 h-5 text-[#1E40AF] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>
+                <div>
+                  <p class="text-sm font-medium text-[#0F172A]">自定义企业知识库</p>
+                  <p class="text-xs text-[#475569] mt-0.5">客户可自主管理企业知识库内容</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5 p-3 rounded-[var(--radius-md)] bg-[var(--color-bg-secondary)]">
+                <svg class="w-5 h-5 text-[#1E40AF] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"/></svg>
+                <div>
+                  <p class="text-sm font-medium text-[#0F172A]">GEO优化进度</p>
+                  <p class="text-xs text-[#475569] mt-0.5">实时跟踪GEO优化任务执行进度</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Feature 7: 权限管理系统 ===== -->
+      <div class="bg-white border border-[var(--color-border)] rounded-[var(--radius-lg)] p-8 md:p-10 hover:shadow-[var(--shadow-card-hover)] transition-shadow">
+        <div class="flex items-start gap-5">
+          <div class="flex-shrink-0 w-12 h-12 rounded-[var(--radius-md)] bg-[#EFF6FF] flex items-center justify-center">
+            <span class="text-[#1E40AF] font-bold text-lg">07</span>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-xl font-semibold text-[#0F172A]">权限管理系统</h3>
+            <p class="text-[#475569] mt-2 leading-relaxed">企业员工与代理商权限角色自定义，精细化管理多层级组织的操作权限</p>
+            <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div class="flex items-start gap-2.5 p-3 rounded-[var(--radius-md)] bg-[var(--color-bg-secondary)]">
+                <svg class="w-5 h-5 text-[#1E40AF] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+                <div>
+                  <p class="text-sm font-medium text-[#0F172A]">角色自定义</p>
+                  <p class="text-xs text-[#475569] mt-0.5">自定义权限角色，灵活配置操作权限</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5 p-3 rounded-[var(--radius-md)] bg-[var(--color-bg-secondary)]">
+                <svg class="w-5 h-5 text-[#1E40AF] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg>
+                <div>
+                  <p class="text-sm font-medium text-[#0F172A]">多层级管理</p>
+                  <p class="text-xs text-[#475569] mt-0.5">支持企业员工与代理商分级权限管理</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Feature 8: 财务管理系统 ===== -->
+      <div class="bg-white border border-[var(--color-border)] rounded-[var(--radius-lg)] p-8 md:p-10 hover:shadow-[var(--shadow-card-hover)] transition-shadow">
+        <div class="flex items-start gap-5">
+          <div class="flex-shrink-0 w-12 h-12 rounded-[var(--radius-md)] bg-[#EFF6FF] flex items-center justify-center">
+            <span class="text-[#1E40AF] font-bold text-lg">08</span>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-xl font-semibold text-[#0F172A]">财务管理系统</h3>
+            <p class="text-[#475569] mt-2 leading-relaxed">完善的财务管理模块，客户在线充值、流水明细一目了然</p>
+            <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div class="flex items-start gap-2.5 p-3 rounded-[var(--radius-md)] bg-[var(--color-bg-secondary)]">
+                <svg class="w-5 h-5 text-[#1E40AF] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z"/></svg>
+                <div>
+                  <p class="text-sm font-medium text-[#0F172A]">客户在线充值</p>
+                  <p class="text-xs text-[#475569] mt-0.5">支持多种支付方式在线充值</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5 p-3 rounded-[var(--radius-md)] bg-[var(--color-bg-secondary)]">
+                <svg class="w-5 h-5 text-[#1E40AF] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V13.5zm0 2.25h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V18zm2.498-6.75h.007v.008h-.007v-.008zm0 2.25h.007v.008h-.007V13.5zm0 2.25h.007v.008h-.007v-.008zm0 2.25h.007v.008h-.007V18zm2.504-6.75h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V13.5zm0 2.25h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V18zm2.498-6.75h.008v.008h-.008v-.008zM15.75 18h.008v.008h-.008V18zM3.375 19.5h17.25a1.875 1.875 0 001.875-1.875V6.375a1.875 1.875 0 00-1.875-1.875H3.375A1.875 1.875 0 001.5 6.375v11.25c0 1.035.84 1.875 1.875 1.875z"/></svg>
+                <div>
+                  <p class="text-sm font-medium text-[#0F172A]">流水明细</p>
+                  <p class="text-xs text-[#475569] mt-0.5">完整的充值与消费流水记录，财务数据清晰透明</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Feature 9: 自定义采集模式 ===== -->
+      <div class="bg-white border border-[var(--color-border)] rounded-[var(--radius-lg)] p-8 md:p-10 hover:shadow-[var(--shadow-card-hover)] transition-shadow">
+        <div class="flex items-start gap-5">
+          <div class="flex-shrink-0 w-12 h-12 rounded-[var(--radius-md)] bg-[#EFF6FF] flex items-center justify-center">
+            <span class="text-[#1E40AF] font-bold text-lg">09</span>
+          </div>
+          <div class="flex-1">
+            <div class="flex items-center gap-3">
+              <h3 class="text-xl font-semibold text-[#0F172A]">自定义采集模式</h3>
+            </div>
+            <p class="text-[#475569] mt-2 leading-relaxed">灵活的数据采集体系，支持多种API对接与第三方数据查询</p>
+            <div class="mt-5 grid grid-cols-1 md:grid-cols-3 gap-3">
+              <div class="flex items-start gap-2.5 p-3 rounded-[var(--radius-md)] bg-[var(--color-bg-secondary)]">
+                <svg class="w-5 h-5 text-[#1E40AF] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z"/></svg>
+                <div>
+                  <p class="text-sm font-medium text-[#0F172A]">大模型API对接</p>
+                  <p class="text-xs text-[#475569] mt-0.5">可对接各大AI模型API</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5 p-3 rounded-[var(--radius-md)] bg-[var(--color-bg-secondary)]">
+                <svg class="w-5 h-5 text-[#1E40AF] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 002.25-2.25V6a2.25 2.25 0 00-2.25-2.25H6A2.25 2.25 0 003.75 6v2.25A2.25 2.25 0 006 10.5zm0 9.75h2.25A2.25 2.25 0 0010.5 18v-2.25a2.25 2.25 0 00-2.25-2.25H6a2.25 2.25 0 00-2.25 2.25V18A2.25 2.25 0 006 20.25zm9.75-9.75H18a2.25 2.25 0 002.25-2.25V6A2.25 2.25 0 0018 3.75h-2.25A2.25 2.25 0 0013.5 6v2.25a2.25 2.25 0 002.25 2.25z"/></svg>
+                <div>
+                  <p class="text-sm font-medium text-[#0F172A]">第三方API查询</p>
+                  <p class="text-xs text-[#475569] mt-0.5">对接第三方API进行数据查询</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5 p-3 rounded-[var(--radius-md)] bg-[var(--color-bg-secondary)]">
+                <svg class="w-5 h-5 text-[#1E40AF] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25"/></svg>
+                <div>
+                  <p class="text-sm font-medium text-[#0F172A]">客户端采集</p>
+                  <p class="text-xs text-[#475569] mt-0.5">客户端本地数据采集</p>
+                </div>
+              </div>
+            </div>
+            <div class="mt-3">
+              <span class="inline-block text-xs font-medium px-2.5 py-1 rounded-full bg-[#FEF3C7] text-[#D97706]">客户端采集开发中</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== TAB CONTENT: 代理端 ==================== -->
+  <div id="panel-agent" class="tab-panel hidden">
+
+    <!-- Section Intro -->
+    <div class="max-w-6xl mx-auto px-6 py-12">
+      <p class="text-sm font-medium text-[#1E40AF] uppercase tracking-wider">代理端</p>
+      <h2 class="text-2xl md:text-3xl font-bold text-[#0F172A] mt-2">独立运营，品牌自主，利润可控</h2>
+      <p class="text-[#475569] mt-3 max-w-3xl">代理商拥有独立运营管理后台，可自主管理项目、客户、员工与财务，自定义品牌与产品售价，灵活掌控利润空间</p>
+    </div>
+
+    <!-- 7 Feature Cards -->
+    <div class="max-w-6xl mx-auto px-6 pb-20 grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <!-- Feature 1: 项目管理 -->
+      <div class="bg-white border border-[var(--color-border)] rounded-[var(--radius-lg)] p-8 hover:shadow-[var(--shadow-card-hover)] transition-shadow">
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-11 h-11 rounded-[var(--radius-md)] bg-[#EFF6FF] flex items-center justify-center">
+            <svg class="w-5 h-5 text-[#1E40AF]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-[#0F172A]">项目管理</h3>
+            <p class="text-[#475569] text-sm mt-2 leading-relaxed">支持创建和管理GEO优化项目，可将项目提单到上级服务商进行执行。全流程跟踪项目状态，从提单到执行到完成，进度透明可控。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 2: 效果报表 -->
+      <div class="bg-white border border-[var(--color-border)] rounded-[var(--radius-lg)] p-8 hover:shadow-[var(--shadow-card-hover)] transition-shadow">
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-11 h-11 rounded-[var(--radius-md)] bg-[#EFF6FF] flex items-center justify-center">
+            <svg class="w-5 h-5 text-[#1E40AF]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-[#0F172A]">效果报表</h3>
+            <p class="text-[#475569] text-sm mt-2 leading-relaxed">多维度查看项目执行效果，包括排名变化、收录情况、优化进度等数据报表，实时掌握服务质量与客户交付成果。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 3: 自定义产品售价 -->
+      <div class="bg-white border border-[var(--color-border)] rounded-[var(--radius-lg)] p-8 hover:shadow-[var(--shadow-card-hover)] transition-shadow">
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-11 h-11 rounded-[var(--radius-md)] bg-[#EFF6FF] flex items-center justify-center">
+            <svg class="w-5 h-5 text-[#1E40AF]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-[#0F172A]">自定义产品售价</h3>
+            <p class="text-[#475569] text-sm mt-2 leading-relaxed">代理商可自主决定产品售价，灵活控制利润空间。支持一二级代理分别定价，也可为每个终端客户单独设置价格，满足不同市场策略需求。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 4: 客户管理 -->
+      <div class="bg-white border border-[var(--color-border)] rounded-[var(--radius-lg)] p-8 hover:shadow-[var(--shadow-card-hover)] transition-shadow">
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-11 h-11 rounded-[var(--radius-md)] bg-[#EFF6FF] flex items-center justify-center">
+            <svg class="w-5 h-5 text-[#1E40AF]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-[#0F172A]">客户管理</h3>
+            <p class="text-[#475569] text-sm mt-2 leading-relaxed">统一管理终端客户信息，包括客户资料、服务记录、计费状态等。可查看客户项目进展与消费情况，高效维护客户关系。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 5: 员工管理 -->
+      <div class="bg-white border border-[var(--color-border)] rounded-[var(--radius-lg)] p-8 hover:shadow-[var(--shadow-card-hover)] transition-shadow">
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-11 h-11 rounded-[var(--radius-md)] bg-[#EFF6FF] flex items-center justify-center">
+            <svg class="w-5 h-5 text-[#1E40AF]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-[#0F172A]">员工管理</h3>
+            <p class="text-[#475569] text-sm mt-2 leading-relaxed">管理代理团队员工账号，支持自定义权限分配与角色配置。不同员工可分配不同功能权限，确保业务安全与操作规范。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 6: 财务流水 -->
+      <div class="bg-white border border-[var(--color-border)] rounded-[var(--radius-lg)] p-8 hover:shadow-[var(--shadow-card-hover)] transition-shadow">
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-11 h-11 rounded-[var(--radius-md)] bg-[#EFF6FF] flex items-center justify-center">
+            <svg class="w-5 h-5 text-[#1E40AF]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-[#0F172A]">财务流水</h3>
+            <p class="text-[#475569] text-sm mt-2 leading-relaxed">独立核算财务数据，完整记录客户充值、消费、结算等所有资金流水。支持查看收支明细与财务对账，资金状况清晰透明。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 7: 发展子代理 -->
+      <div class="bg-white border border-[var(--color-border)] rounded-[var(--radius-lg)] p-8 hover:shadow-[var(--shadow-card-hover)] transition-shadow">
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-11 h-11 rounded-[var(--radius-md)] bg-[#EFF6FF] flex items-center justify-center">
+            <svg class="w-5 h-5 text-[#1E40AF]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-[#0F172A]">发展子代理</h3>
+            <p class="text-[#475569] text-sm mt-2 leading-relaxed">代理商可发展下级子代理，构建多级代理体系。支持一级代理发展二级代理，上级代理可审批下级入驻申请，实现渠道快速扩张与层级化管理。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 8: OEM设置 -->
+      <div class="bg-white border border-[var(--color-border)] rounded-[var(--radius-lg)] p-8 hover:shadow-[var(--shadow-card-hover)] transition-shadow md:col-span-2">
+        <div class="flex items-start gap-4 md:items-center md:gap-6">
+          <div class="flex-shrink-0 w-11 h-11 rounded-[var(--radius-md)] bg-[#EFF6FF] flex items-center justify-center">
+            <svg class="w-5 h-5 text-[#1E40AF]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-[#0F172A]">OEM设置</h3>
+            <p class="text-[#475569] text-sm mt-2 leading-relaxed">支持代理商自定义品牌名称、Logo与域名，打造完全独立的品牌形象。客户访问时看到的是代理商自有品牌，实现真正的品牌白标运营。</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== TAB CONTENT: 客户端 ==================== -->
+  <div id="panel-client" class="tab-panel hidden">
+
+    <!-- Section Intro -->
+    <div class="max-w-6xl mx-auto px-6 py-12">
+      <p class="text-sm font-medium text-[#1E40AF] uppercase tracking-wider">客户端</p>
+      <h2 class="text-2xl md:text-3xl font-bold text-[#0F172A] mt-2">透明服务自助管理</h2>
+      <p class="text-[#475569] mt-3 max-w-2xl">终端客户可实时查看服务进度、计费明细，自助管理企业信息</p>
+    </div>
+
+    <!-- Feature Blocks -->
+    <div class="space-y-16 max-w-6xl mx-auto px-6 pb-20">
+
+      <!-- Block A: 计费与服务查看 -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+        <div>
+          <h3 class="text-xl font-semibold text-[#0F172A]">计费与服务查看</h3>
+          <p class="text-[#475569] mt-3">透明的计费展示与实时的服务进度跟踪，让客户对服务了如指掌</p>
+          <ul class="mt-6 space-y-3">
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 w-2 h-2 rounded-full bg-[#1E40AF] flex-shrink-0"></span>
+              <span class="text-[#475569]">计费明细：实时查看每日计费详情与费用构成</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 w-2 h-2 rounded-full bg-[#1E40AF] flex-shrink-0"></span>
+              <span class="text-[#475569]">报表明细：按天、按月查看服务报表与数据趋势</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 w-2 h-2 rounded-full bg-[#1E40AF] flex-shrink-0"></span>
+              <span class="text-[#475569]">账单管理：在线充值、查看充值记录与消费流水</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 w-2 h-2 rounded-full bg-[#1E40AF] flex-shrink-0"></span>
+              <span class="text-[#475569]">服务进度：实时跟踪GEO优化任务执行进度</span>
+            </li>
+          </ul>
+        </div>
+        <div class="bg-[#EFF6FF] rounded-[var(--radius-lg)] p-8">
+          <!-- Billing dashboard mockup -->
+          <div class="bg-white rounded-[var(--radius-md)] p-4 shadow-[var(--shadow-card)]">
+            <div class="flex items-center gap-2 mb-4">
+              <div class="w-3 h-3 rounded-full bg-[var(--color-border)]"></div>
+              <div class="w-3 h-3 rounded-full bg-[var(--color-border)]"></div>
+              <div class="w-3 h-3 rounded-full bg-[var(--color-border)]"></div>
+              <div class="flex-1 h-5 bg-[var(--color-bg-tertiary)] rounded ml-2"></div>
+            </div>
+            <!-- Summary cards -->
+            <div class="grid grid-cols-2 gap-2 mb-4">
+              <div class="bg-[var(--color-bg-secondary)] rounded-[var(--radius-sm)] p-3">
+                <div class="w-10 h-2 bg-[var(--color-text-tertiary)] rounded mb-2"></div>
+                <div class="w-14 h-5 bg-[#1E40AF] rounded"></div>
+              </div>
+              <div class="bg-[var(--color-bg-secondary)] rounded-[var(--radius-sm)] p-3">
+                <div class="w-10 h-2 bg-[var(--color-text-tertiary)] rounded mb-2"></div>
+                <div class="w-14 h-5 bg-[#059669] rounded"></div>
+              </div>
+            </div>
+            <!-- Line chart placeholder -->
+            <div class="h-20 bg-[var(--color-bg-secondary)] rounded-[var(--radius-md)] mb-3 relative">
+              <svg class="w-full h-full" viewBox="0 0 200 80" preserveAspectRatio="none">
+                <polyline points="0,60 30,45 60,50 90,30 120,35 150,15 180,20 200,10" fill="none" stroke="#1E40AF" stroke-width="2"/>
+                <polyline points="0,60 30,45 60,50 90,30 120,35 150,15 180,20 200,10 200,80 0,80" fill="#1E40AF" fill-opacity="0.08"/>
+              </svg>
+            </div>
+            <!-- Table rows -->
+            <div class="space-y-1.5">
+              <div class="flex gap-2">
+                <div class="h-3 bg-[var(--color-bg-tertiary)] rounded flex-1"></div>
+                <div class="h-3 bg-[var(--color-bg-tertiary)] rounded w-16"></div>
+                <div class="h-3 bg-[var(--color-bg-tertiary)] rounded w-16"></div>
+              </div>
+              <div class="flex gap-2">
+                <div class="h-3 bg-[var(--color-bg-tertiary)] rounded flex-1"></div>
+                <div class="h-3 bg-[var(--color-bg-tertiary)] rounded w-16"></div>
+                <div class="h-3 bg-[var(--color-bg-tertiary)] rounded w-16"></div>
+              </div>
+              <div class="flex gap-2">
+                <div class="h-3 bg-[var(--color-bg-tertiary)] rounded flex-1"></div>
+                <div class="h-3 bg-[var(--color-bg-tertiary)] rounded w-16"></div>
+                <div class="h-3 bg-[var(--color-bg-tertiary)] rounded w-16"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Block B: 企业知识库管理 (reversed) -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+        <div class="order-2 lg:order-1 bg-[#EFF6FF] rounded-[var(--radius-lg)] p-8">
+          <!-- Knowledge base mockup -->
+          <div class="bg-white rounded-[var(--radius-md)] p-4 shadow-[var(--shadow-card)]">
+            <div class="flex items-center gap-2 mb-4">
+              <div class="w-3 h-3 rounded-full bg-[var(--color-border)]"></div>
+              <div class="w-3 h-3 rounded-full bg-[var(--color-border)]"></div>
+              <div class="w-3 h-3 rounded-full bg-[var(--color-border)]"></div>
+              <div class="flex-1 h-5 bg-[var(--color-bg-tertiary)] rounded ml-2"></div>
+            </div>
+            <!-- Knowledge items -->
+            <div class="space-y-2">
+              <div class="flex items-center gap-3 p-2 bg-[var(--color-bg-secondary)] rounded-[var(--radius-sm)]">
+                <div class="w-8 h-8 bg-[#EFF6FF] rounded-[var(--radius-sm)] flex items-center justify-center flex-shrink-0">
+                  <div class="w-4 h-4 bg-[#1E40AF]/30 rounded"></div>
+                </div>
+                <div class="flex-1 space-y-1">
+                  <div class="h-2.5 bg-[var(--color-text-secondary)] rounded w-3/4"></div>
+                  <div class="h-2 bg-[var(--color-text-tertiary)] rounded w-1/2"></div>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 p-2 bg-[var(--color-bg-secondary)] rounded-[var(--radius-sm)]">
+                <div class="w-8 h-8 bg-[#EFF6FF] rounded-[var(--radius-sm)] flex items-center justify-center flex-shrink-0">
+                  <div class="w-4 h-4 bg-[#1E40AF]/30 rounded"></div>
+                </div>
+                <div class="flex-1 space-y-1">
+                  <div class="h-2.5 bg-[var(--color-text-secondary)] rounded w-2/3"></div>
+                  <div class="h-2 bg-[var(--color-text-tertiary)] rounded w-2/5"></div>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 p-2 bg-[var(--color-bg-secondary)] rounded-[var(--radius-sm)]">
+                <div class="w-8 h-8 bg-[#EFF6FF] rounded-[var(--radius-sm)] flex items-center justify-center flex-shrink-0">
+                  <div class="w-4 h-4 bg-[#1E40AF]/30 rounded"></div>
+                </div>
+                <div class="flex-1 space-y-1">
+                  <div class="h-2.5 bg-[var(--color-text-secondary)] rounded w-4/5"></div>
+                  <div class="h-2 bg-[var(--color-text-tertiary)] rounded w-3/5"></div>
+                </div>
+              </div>
+            </div>
+            <!-- AI preview area -->
+            <div class="mt-3 p-3 bg-[#EFF6FF] border border-[#BFDBFE] rounded-[var(--radius-sm)]">
+              <div class="flex items-center gap-2 mb-2">
+                <div class="w-4 h-4 bg-[#1E40AF]/30 rounded-full"></div>
+                <div class="h-2.5 bg-[#1E40AF] rounded w-20"></div>
+              </div>
+              <div class="space-y-1">
+                <div class="h-2 bg-[var(--color-border)] rounded w-full"></div>
+                <div class="h-2 bg-[var(--color-border)] rounded w-5/6"></div>
+                <div class="h-2 bg-[var(--color-border)] rounded w-4/6"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="order-1 lg:order-2">
+          <h3 class="text-xl font-semibold text-[#0F172A]">企业知识库管理</h3>
+          <p class="text-[#475569] mt-3">自主维护企业知识库，管理AI生成内容，掌控品牌信息发布</p>
+          <ul class="mt-6 space-y-3">
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 w-2 h-2 rounded-full bg-[#1E40AF] flex-shrink-0"></span>
+              <span class="text-[#475569]">知识库配置：自定义企业信息、产品介绍、服务内容</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 w-2 h-2 rounded-full bg-[#1E40AF] flex-shrink-0"></span>
+              <span class="text-[#475569]">内容管理：编辑与管理企业知识库文章与素材</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 w-2 h-2 rounded-full bg-[#1E40AF] flex-shrink-0"></span>
+              <span class="text-[#475569]">AI生成预览：查看AI基于知识库生成的内容并确认发布</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== BOTTOM CTA ==================== -->
+  <section class="py-20 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] text-center px-6">
+    <h2 class="text-white text-3xl font-bold">立即体验产品功能</h2>
+    <p class="text-white/80 mt-4">注册即可免费试用所有功能</p>
+    <a href="/solutions" data-dom-id="cta-solutions" class="inline-block bg-white text-[#1E40AF] rounded-[var(--radius-md)] px-8 py-3 font-medium hover:bg-[var(--color-bg-secondary)] mt-8 transition-colors">查看解决方案</a>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-[#0F172A]">
+    <div class="max-w-7xl mx-auto px-6 py-16">
+
+      <!-- Footer Grid: 4 columns desktop, 2 columns mobile -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+
+        <!-- Column 1: Brand -->
+        <div>
+          <h3 class="text-white text-lg font-semibold mb-4">GEO计费优化管理系统</h3>
+          <p class="text-[var(--color-text-tertiary)] text-sm leading-relaxed">
+            专业的GEO排名计费与优化管理平台，助力企业实现智能化品牌管理
+          </p>
+        </div>
+
+        <!-- Column 2: 产品 -->
+        <div>
+          <h4 class="text-white text-sm font-semibold mb-4 uppercase tracking-wider">产品</h4>
+          <ul class="space-y-3">
+            <li><a href="/product-features" class="text-[var(--color-text-tertiary)] text-sm hover:text-white transition-colors">产品功能</a></li>
+            <li><a href="/pricing" class="text-[var(--color-text-tertiary)] text-sm hover:text-white transition-colors">产品价格</a></li>
+            <li><a href="/solutions" class="text-[var(--color-text-tertiary)] text-sm hover:text-white transition-colors">解决方案</a></li>
+            <li><a href="/contact" class="text-[var(--color-text-tertiary)] text-sm hover:text-white transition-colors">联系我们</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: 支持 -->
+        <div>
+          <h4 class="text-white text-sm font-semibold mb-4 uppercase tracking-wider">支持</h4>
+          <ul class="space-y-3">
+            <li><a href="/help-center" class="text-[var(--color-text-tertiary)] text-sm hover:text-white transition-colors">帮助中心</a></li>
+            <li><a href="/contact" class="text-[var(--color-text-tertiary)] text-sm hover:text-white transition-colors">联系我们</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: 联系方式 -->
+        <div>
+          <h4 class="text-white text-sm font-semibold mb-4 uppercase tracking-wider">联系方式</h4>
+          <ul class="space-y-4">
+            <li class="flex items-center gap-2 text-[var(--color-text-tertiary)] text-sm">
+              <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"></path>
+              </svg>
+              <span>13860403590</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-20 h-20 bg-white/10 rounded-[var(--radius-md)] flex items-center justify-center flex-shrink-0">
+                <img src="assets/customer-service-qr.png" alt="客服微信二维码" class="w-16 h-16 object-contain">
+              </div>
+              <div>
+                <span class="text-[var(--color-text-tertiary)] text-sm">微信扫码咨询</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="mt-12 pt-8 border-t border-[var(--color-text-tertiary)]/20 text-center">
+                    <p class="text-[var(--color-text-tertiary)] text-sm mb-2">AiGeo.chinaz.com</p>
+            <p class="text-[var(--color-text-tertiary)] text-sm">&copy; 2026 GEO计费优化管理系统 版权所有</p>
+            <p class="text-gray-500 text-xs mt-2"><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-300 transition-colors">闽ICP备08105208号</a></p>
+      </div>
+
+    </div>
+  </footer>
+
+</div>
+
+<!-- Tab switching script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.tab-panel');
+
+  tabBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      const targetId = btn.getAttribute('data-tab');
+
+      // Hide all panels
+      panels.forEach(function(panel) {
+        panel.classList.add('hidden');
+      });
+
+      // Show target panel
+      var target = document.getElementById(targetId);
+      if (target) {
+        target.classList.remove('hidden');
+      }
+
+      // Update tab styles
+      tabBtns.forEach(function(b) {
+        b.classList.remove('text-[#1E40AF]', 'bg-[#EFF6FF]', 'font-semibold');
+        b.classList.add('text-[#475569]', 'font-medium');
+      });
+      btn.classList.remove('text-[#475569]', 'font-medium');
+      btn.classList.add('text-[#1E40AF]', 'bg-[#EFF6FF]', 'font-semibold');
+    });
+  });
+
+  // Mobile menu toggle
+  var menuToggle = document.querySelector('[data-dom-id="mobile-menu-toggle"]');
+  var menuPanel = document.querySelector('[data-dom-id="mobile-menu-panel"]');
+  if (menuToggle && menuPanel) {
+    menuToggle.addEventListener('click', function() {
+      menuPanel.classList.toggle('hidden');
+    });
+  }
+});
+</script>
+
+<!-- ==================== CONTACT MODAL ==================== -->
+<div id="contact-modal" class="fixed inset-0 z-[100] hidden items-center justify-center">
+  <!-- Backdrop -->
+  <div class="absolute inset-0 bg-black/50" onclick="closeContactModal()"></div>
+  <!-- Modal Content -->
+  <div class="relative bg-white rounded-[var(--radius-lg)] shadow-[var(--shadow-float)] w-full max-w-md mx-4 p-8">
+    <!-- Close button -->
+    <button onclick="closeContactModal()" class="absolute top-4 right-4 text-[#94A3B8] hover:text-[#0F172A] transition-colors">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+    <!-- Modal Header -->
+    <h3 class="text-xl font-bold text-[#0F172A] mb-6">联系我们</h3>
+    <!-- Contact Info -->
+    <div class="space-y-5">
+      <!-- Contact Person -->
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-[#EFF6FF] rounded-full flex items-center justify-center flex-shrink-0">
+          <svg class="w-5 h-5 text-[#1E40AF]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="text-sm text-[#94A3B8]">联系人</div>
+          <div class="text-base font-semibold text-[#0F172A]">张经理</div>
+        </div>
+      </div>
+      <!-- Phone -->
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-[#EFF6FF] rounded-full flex items-center justify-center flex-shrink-0">
+          <svg class="w-5 h-5 text-[#1E40AF]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="text-sm text-[#94A3B8]">联系电话</div>
+          <div class="text-base font-semibold text-[#0F172A]">13860403590</div>
+        </div>
+      </div>
+      <!-- WeChat QR -->
+      <div class="flex items-start gap-3">
+        <div class="w-10 h-10 bg-[#EFF6FF] rounded-full flex items-center justify-center flex-shrink-0">
+          <svg class="w-5 h-5 text-[#1E40AF]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="text-sm text-[#94A3B8]">微信客服</div>
+          <div class="mt-2 w-28 h-28 bg-[#F8FAFC] border border-[var(--color-border)] rounded-[var(--radius-md)] flex items-center justify-center">
+            <div class="text-center">
+              <img src="assets/customer-service-qr.png" alt="客服微信二维码" class="w-20 h-20 mx-auto object-contain">
+              <p class="text-[10px] text-[#94A3B8] mt-1">微信扫码咨询</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function openContactModal() {
+  var m = document.getElementById('contact-modal');
+  m.classList.remove('hidden');
+  m.classList.add('flex');
+  document.body.style.overflow = 'hidden';
+}
+function closeContactModal() {
+  var m = document.getElementById('contact-modal');
+  m.classList.add('hidden');
+  m.classList.remove('flex');
+  document.body.style.overflow = '';
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,390 @@
+{
+  "data": [
+    {
+      "id": "page-index",
+      "title": "首页",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1752748800000,
+      "canvasData": {
+        "x": 0,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/index.html",
+        "interactions": [
+          {
+            "domId": "cta-features",
+            "targetPageId": "page-features"
+          },
+          {
+            "domId": "nav-features",
+            "targetPageId": "page-features",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-product-features",
+            "targetPageId": "page-product-features",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-solutions",
+            "targetPageId": "page-solutions",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-pricing",
+            "targetPageId": "page-pricing",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-help-center",
+            "targetPageId": "page-help-center",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-contact",
+            "targetPageId": "page-contact",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-features",
+      "title": "核心功能",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1752748800000,
+      "canvasData": {
+        "x": 620,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/features.html",
+        "interactions": [
+          {
+            "domId": "cta-solutions",
+            "targetPageId": "page-product-features"
+          },
+          {
+            "domId": "nav-index",
+            "targetPageId": "page-index",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-product-features",
+            "targetPageId": "page-product-features",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-solutions",
+            "targetPageId": "page-solutions",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-pricing",
+            "targetPageId": "page-pricing",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-help-center",
+            "targetPageId": "page-help-center",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-contact",
+            "targetPageId": "page-contact",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-product-features",
+      "title": "产品功能",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1752748801000,
+      "canvasData": {
+        "x": 1240,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/product-features.html",
+        "interactions": [
+          {
+            "domId": "cta-solutions",
+            "targetPageId": "page-solutions"
+          },
+          {
+            "domId": "nav-index",
+            "targetPageId": "page-index",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-features",
+            "targetPageId": "page-features",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-solutions",
+            "targetPageId": "page-solutions",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-pricing",
+            "targetPageId": "page-pricing",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-help-center",
+            "targetPageId": "page-help-center",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-contact",
+            "targetPageId": "page-contact",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-solutions",
+      "title": "解决方案",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1752748800000,
+      "canvasData": {
+        "x": 1860,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/solutions.html",
+        "interactions": [
+          {
+            "domId": "cta-contact",
+            "targetPageId": "page-contact"
+          },
+          {
+            "domId": "nav-index",
+            "targetPageId": "page-index",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-features",
+            "targetPageId": "page-features",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-product-features",
+            "targetPageId": "page-product-features",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-pricing",
+            "targetPageId": "page-pricing",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-help-center",
+            "targetPageId": "page-help-center",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-contact",
+            "targetPageId": "page-contact",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-pricing",
+      "title": "产品价格",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1752748802000,
+      "canvasData": {
+        "x": 1860,
+        "y": 903,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/pricing.html",
+        "interactions": [
+          {
+            "domId": "cta-contact",
+            "targetPageId": "page-contact"
+          },
+          {
+            "domId": "nav-index",
+            "targetPageId": "page-index",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-features",
+            "targetPageId": "page-features",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-product-features",
+            "targetPageId": "page-product-features",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-solutions",
+            "targetPageId": "page-solutions",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-help-center",
+            "targetPageId": "page-help-center",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-contact",
+            "targetPageId": "page-contact",
+            "hideEdge": true
+          },
+          {
+            "domId": "cta-contact-bottom",
+            "targetPageId": "page-contact"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-help-center",
+      "title": "帮助中心",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1752748803000,
+      "canvasData": {
+        "x": 0,
+        "y": 1490,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/help-center.html",
+        "interactions": [
+          {
+            "domId": "nav-index",
+            "targetPageId": "page-index",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-features",
+            "targetPageId": "page-features",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-product-features",
+            "targetPageId": "page-product-features",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-solutions",
+            "targetPageId": "page-solutions",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-pricing",
+            "targetPageId": "page-pricing",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-contact",
+            "targetPageId": "page-contact",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-contact",
+      "title": "联系我们",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1752748800000,
+      "canvasData": {
+        "x": 2480,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/contact.html",
+        "interactions": [
+          {
+            "domId": "nav-index",
+            "targetPageId": "page-index",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-features",
+            "targetPageId": "page-features",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-product-features",
+            "targetPageId": "page-product-features",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-solutions",
+            "targetPageId": "page-solutions",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-pricing",
+            "targetPageId": "page-pricing",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-help-center",
+            "targetPageId": "page-help-center",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "image-001",
+      "title": "首页主视觉",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1752748800000,
+      "canvasData": {
+        "x": 0,
+        "y": 2035
+      },
+      "devMetadata": {
+        "imageSrc": "assets/hero-main.jpg"
+      }
+    },
+    {
+      "id": "image-logo",
+      "title": "LOGO",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1752748800000,
+      "canvasData": {
+        "x": 620,
+        "y": 2035
+      },
+      "devMetadata": {
+        "imageSrc": "assets/logo.png"
+      }
+    }
+  ],
+  "config": {
+    "autoLayout": true,
+    "deviceType": "desktop",
+    "projectName": "GEO计费优化管理系统官网"
+  }
+}
